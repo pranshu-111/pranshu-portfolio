@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patel Pranshu — Civil Engineering Student &amp; Researcher</title>
+  <meta name="description" content="Personal portfolio of Patel Pranshu — First-year B.E. Civil Engineering student at GEC Modasa, student researcher in sustainable building materials, competitive badminton player, and Rangoli artist." />
+
+  <!-- Aesthetic Editorial Google Fonts: Cormorant Garamond, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Custom Palette & Editorial Typography Tokens -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            midnight: '#050914',
+            prussian: '#091329',
+            indigoDeep: '#0f1f42',
+            champagne: '#e8c468',
+            goldSoft: '#f6df9b',
+            ivory: '#f4f0e6',
+            blueprintCyan: '#7dd3fc',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          boxShadow: {
+            'gold-halo': '0 0 32px rgba(232, 196, 104, 0.22)',
+            'glass-panel': '0 20px 50px -15px rgba(2, 6, 18, 0.8), 0 0 0 1px rgba(232, 196, 104, 0.14)',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Targeted Styles for Starry Night Backdrop, PP Preloader, Petronas Blueprint & Glassmorphism -->
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      background-color: #050914;
+      color: #f4f0e6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* =========================================================================
+       1. REAL VINCENT VAN GOGH "THE STARRY NIGHT" ATMOSPHERIC BACKDROP
+       ========================================================================= */
+    .starry-night-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-color: #050914;
+      background-image:
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1920px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg'),
+        radial-gradient(circle at 78% 28%, #163366 0%, #0a1733 48%, #050914 100%);
+      background-size: cover;
+      background-position: 62% center;
+      background-repeat: no-repeat;
+      transform: scale(1.02);
+      will-change: transform;
+    }
+
+    /* Directional Midnight-Indigo Editorial Scrim:
+       Darker on the left for effortless text contrast; more open on the right so
+       Van Gogh's brushwork and nocturnal palette breathe cleanly. */
+    .starry-night-scrim {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          102deg,
+          rgba(5, 9, 20, 0.91) 0%,
+          rgba(6, 12, 28, 0.78) 38%,
+          rgba(8, 17, 38, 0.44) 68%,
+          rgba(5, 10, 24, 0.52) 100%
+        ),
+        linear-gradient(
+          180deg,
+          rgba(5, 9, 20, 0.42) 0%,
+          rgba(5, 9, 20, 0.14) 35%,
+          rgba(5, 9, 20, 0.65) 100%
+        );
+    }
+
+    /* Ultra-Subtle Starlight Dust Particle Canvas */
+    #dust-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* =========================================================================
+       2. GOLDEN "PP" MONOGRAM POP-UP SPLASH PRELOADER
+       ========================================================================= */
+    #pp-preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: radial-gradient(circle at center, #0a142d 0%, #050914 75%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.95s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.85s ease;
+    }
+
+    #pp-preloader.is-dismissed {
+      opacity: 0;
+      transform: translateY(-28px) scale(1.03);
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    @keyframes ringDraw {
+      from { stroke-dashoffset: 565; opacity: 0.25; }
+      to { stroke-dashoffset: 0; opacity: 1; }
+    }
+
+    @keyframes ppPopUp {
+      0% { opacity: 0; transform: scale(0.76) translateY(14px); filter: blur(4px); }
+      65% { opacity: 1; transform: scale(1.03) translateY(0); filter: blur(0); }
+      100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+    }
+
+    @keyframes goldShimmer {
+      0% { background-position: -180% center; }
+      100% { background-position: 180% center; }
+    }
+
+    .preloader-ring-path {
+      stroke-dasharray: 565;
+      stroke-dashoffset: 565;
+      animation: ringDraw 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .preloader-monogram-pop {
+      animation: ppPopUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+    }
+
+    .shimmer-gold-text {
+      background: linear-gradient(
+        115deg,
+        #cfa142 0%,
+        #f7e2a0 35%,
+        #fff7d6 50%,
+        #e5be62 65%,
+        #c89636 100%
+      );
+      background-size: 240% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: goldShimmer 2.4s linear infinite;
+    }
+
+    /* =========================================================================
+       3. FROSTED MIDNIGHT GLASSMORPHISM & HOVER ELEVATION
+       ========================================================================= */
+    .glass-card {
+      background: linear-gradient(150deg, rgba(10, 20, 44, 0.72) 0%, rgba(5, 10, 24, 0.84) 100%);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(232, 196, 104, 0.16);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(232, 196, 104, 0.46);
+      box-shadow: 0 22px 48px -14px rgba(2, 6, 18, 0.88), 0 0 26px rgba(232, 196, 104, 0.14);
+      transform: translateY(-3px);
+    }
+
+    /* =========================================================================
+       4. PETRONAS TWIN TOWERS BLUEPRINT STAGE & STARRY NIGHT LAYER
+       ========================================================================= */
+    .petronas-canvas-frame {
+      position: relative;
+      background-color: #060d1f;
+      background-image:
+        linear-gradient(180deg, rgba(5, 11, 26, 0.42) 0%, rgba(6, 14, 34, 0.54) 55%, rgba(5, 9, 20, 0.92) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1920px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg');
+      background-size: cover;
+      background-position: center 35%;
+    }
+
+    .architectural-grid-overlay {
+      background-image:
+        linear-gradient(to right, rgba(125, 211, 252, 0.065) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(125, 211, 252, 0.065) 1px, transparent 1px),
+        linear-gradient(to right, rgba(232, 196, 104, 0.055) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(232, 196, 104, 0.055) 1px, transparent 1px);
+      background-size: 24px 24px, 24px 24px, 120px 120px, 120px 120px;
+    }
+
+    /* Floor Build vs. Wireframe State Transitions */
+    .tower-stage .stage-built {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+
+    .tower-stage.is-built .stage-built {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .tower-stage .stage-wireframe {
+      opacity: 0.72;
+      transition: opacity 0.55s ease;
+    }
+
+    .tower-stage.is-built .stage-wireframe {
+      opacity: 0.1;
+    }
+
+    .tower-stage .stage-active-bracket {
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .tower-stage.is-selected .stage-active-bracket {
+      opacity: 1;
+    }
+
+    @keyframes subtleBeacon {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 1; }
+    }
+
+    .spire-beacon {
+      animation: subtleBeacon 2.8s ease-in-out infinite;
+    }
+
+    /* =========================================================================
+       5. RANGE SLIDER, SCROLL REVEALS & SCROLLBAR
+       ========================================================================= */
+    input[type="range"].blueprint-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 5px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, rgba(232, 196, 104, 0.4), rgba(125, 211, 252, 0.25));
+      outline: none;
+    }
+
+    input[type="range"].blueprint-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 9999px;
+      background: radial-gradient(circle at 35% 35%, #fff3c7, #e8c468 68%, #b38325 100%);
+      border: 2px solid #050914;
+      box-shadow: 0 0 14px rgba(232, 196, 104, 0.75);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    input[type="range"].blueprint-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.16);
+    }
+
+    input[type="range"].blueprint-slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 9999px;
+      background: radial-gradient(circle at 35% 35%, #fff3c7, #e8c468 68%, #b38325 100%);
+      border: 2px solid #050914;
+      box-shadow: 0 0 14px rgba(232, 196, 104, 0.75);
+      cursor: pointer;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes slowRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .rangoli-spin {
+      animation: slowRotate 64s linear infinite;
+      transform-origin: center;
+    }
+
+    ::-webkit-scrollbar { width: 9px; }
+    ::-webkit-scrollbar-track { background: #050914; }
+    ::-webkit-scrollbar-thumb { background: #1c315e; border-radius: 9999px; border: 2px solid #050914; }
+    ::-webkit-scrollbar-thumb:hover { background: #e8c468; }
+  </style>
+</head>
+<body class="antialiased selection:bg-champagne selection:text-midnight">
+
+  <!-- ==================== 1. FULL-SCREEN "PP" MONOGRAM POP-UP PRELOADER ==================== -->
+  <div id="pp-preloader" role="dialog" aria-label="Patel Pranshu Portfolio Introduction">
+    <div class="relative flex flex-col items-center justify-center">
+      <!-- Thin Architectural Ring that Draws Itself -->
+      <div class="relative w-44 h-44 sm:w-52 sm:h-52 flex items-center justify-center">
+        <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <circle cx="100" cy="100" r="90" stroke="rgba(232, 196, 104, 0.14)" stroke-width="1" />
+          <circle cx="100" cy="100" r="90" stroke="#e8c468" stroke-width="1.25" class="preloader-ring-path" />
+          <circle cx="100" cy="100" r="80" stroke="rgba(125, 211, 252, 0.24)" stroke-width="0.75" stroke-dasharray="3 6" />
+          <!-- Architectural Cardinal Ticks -->
+          <line x1="100" y1="4" x2="100" y2="14" stroke="#e8c468" stroke-width="1.2" />
+          <line x1="100" y1="186" x2="100" y2="196" stroke="#e8c468" stroke-width="1.2" />
+          <line x1="4" y1="100" x2="14" y2="100" stroke="#e8c468" stroke-width="1.2" />
+          <line x1="186" y1="100" x2="196" y2="100" stroke="#e8c468" stroke-width="1.2" />
+        </svg>
+
+        <!-- Pop-Up Golden PP Monogram -->
+        <div class="preloader-monogram-pop flex flex-col items-center justify-center select-none">
+          <span class="font-display font-medium text-6xl sm:text-7xl tracking-[0.06em] shimmer-gold-text leading-none">PP</span>
+        </div>
+      </div>
+
+      <!-- Subtle Editorial Signature Under Monogram -->
+      <p class="preloader-monogram-pop mt-5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.38em] text-champagne/80">
+        Patel Pranshu
+      </p>
+    </div>
+  </div>
+
+  <!-- ==================== 2. REAL VAN GOGH "STARRY NIGHT" BACKGROUND LAYERS ==================== -->
+  <div class="starry-night-backdrop" aria-hidden="true"></div>
+  <div class="starry-night-scrim" aria-hidden="true"></div>
+  <canvas id="dust-canvas" aria-hidden="true"></canvas>
+
+  <!-- Custom Non-Blocking Toast Container (replaces alert()) -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 pointer-events-none flex flex-col gap-2" aria-live="polite"></div>
+
+  <!-- ==================== 3. MAIN PORTFOLIO CONTENT ==================== -->
+  <div class="relative z-10 min-h-screen flex flex-col">
+
+    <!-- STICKY MINIMAL GLASS NAVBAR -->
+    <header class="sticky top-0 z-40 border-b border-champagne/15 bg-midnight/65 backdrop-blur-xl">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+        <div class="flex items-center justify-between h-16 sm:h-20">
+          <!-- Left: Refined Golden PP Monogram -->
+          <a href="#top" class="flex items-center gap-3 group focus:outline-none">
+            <div class="w-10 h-10 rounded-full border border-champagne/55 bg-midnight/70 flex items-center justify-center group-hover:border-goldSoft group-hover:shadow-gold-halo transition-all">
+              <span class="font-display font-semibold text-lg tracking-wider text-champagne">PP</span>
+            </div>
+            <div class="leading-tight">
+              <span class="block font-display text-xl font-medium tracking-wide text-ivory group-hover:text-goldSoft transition-colors">Patel Pranshu</span>
+              <span class="block font-mono text-[9px] uppercase tracking-[0.26em] text-champagne/75">Civil Engineering</span>
+            </div>
+          </a>
+
+          <!-- Right: Clean Navigation Links -->
+          <nav class="hidden md:flex items-center gap-1 lg:gap-2" aria-label="Primary Navigation">
+            <a href="#about" class="px-3.5 py-2 rounded-lg text-[13px] font-normal tracking-wide text-ivory/80 hover:text-goldSoft hover:bg-champagne/10 transition-colors">About</a>
+            <a href="#blueprint" class="px-3.5 py-2 rounded-lg text-[13px] font-normal tracking-wide text-ivory/80 hover:text-goldSoft hover:bg-champagne/10 transition-colors">Blueprint</a>
+            <a href="#experience" class="px-3.5 py-2 rounded-lg text-[13px] font-normal tracking-wide text-ivory/80 hover:text-goldSoft hover:bg-champagne/10 transition-colors">Experience</a>
+            <a href="#skills" class="px-3.5 py-2 rounded-lg text-[13px] font-normal tracking-wide text-ivory/80 hover:text-goldSoft hover:bg-champagne/10 transition-colors">Skills</a>
+            <a href="#beyond" class="px-3.5 py-2 rounded-lg text-[13px] font-normal tracking-wide text-ivory/80 hover:text-goldSoft hover:bg-champagne/10 transition-colors">Beyond Academics</a>
+            <a href="#contact" class="ml-2 px-5 py-2 rounded-full text-[13px] font-medium border border-champagne/55 bg-champagne/10 text-goldSoft hover:bg-champagne hover:text-midnight transition-all">Contact</a>
+          </nav>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" type="button" class="md:hidden p-3 rounded-xl border border-champagne/25 bg-midnight/60 text-champagne hover:bg-champagne/15 focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg id="menu-open-icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+            <svg id="menu-close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer -->
+      <div id="mobile-menu" class="hidden md:hidden border-t border-champagne/15 bg-midnight/95 backdrop-blur-xl px-5 py-4 space-y-1">
+        <a href="#about" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm text-ivory/90 hover:bg-champagne/10 hover:text-goldSoft">About</a>
+        <a href="#blueprint" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm text-ivory/90 hover:bg-champagne/10 hover:text-goldSoft">Blueprint</a>
+        <a href="#experience" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm text-ivory/90 hover:bg-champagne/10 hover:text-goldSoft">Experience</a>
+        <a href="#skills" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm text-ivory/90 hover:bg-champagne/10 hover:text-goldSoft">Skills</a>
+        <a href="#beyond" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm text-ivory/90 hover:bg-champagne/10 hover:text-goldSoft">Beyond Academics</a>
+        <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-medium border border-champagne/50 bg-champagne/15 text-goldSoft text-center mt-2">Contact</a>
+      </div>
+    </header>
+
+    <main id="top" class="flex-1">
+
+      <!-- ==================== 4. LEFT-ALIGNED EDITORIAL HERO SECTION ==================== -->
+      <section class="relative min-h-[calc(100vh-5rem)] flex items-center py-16 sm:py-24 px-5 sm:px-8 lg:px-12">
+        <div class="w-full max-w-7xl mx-auto">
+          <!-- Asymmetric Editorial Composition: Pushed Cleanly to the LEFT (~620px max-width),
+               keeping the center & right open to let Van Gogh's Starry Night breathe -->
+          <div class="max-w-[620px] text-left">
+            <!-- Eyebrow Location & Institution Label -->
+            <div class="reveal inline-flex items-center gap-3 mb-6">
+              <span class="w-8 h-px bg-champagne/75"></span>
+              <span class="font-mono text-[11px] sm:text-xs uppercase tracking-[0.28em] text-champagne">
+                Himatnagar, Gujarat &bull; GEC Modasa
+              </span>
+            </div>
+
+            <!-- Display Name in Luxurious Editorial Cormorant Garamond -->
+            <h1 class="reveal font-display font-medium text-6xl sm:text-7xl lg:text-[84px] leading-[0.98] tracking-[-0.015em] text-ivory mb-5">
+              Patel <span class="italic font-normal text-goldSoft">Pranshu</span>
+            </h1>
+
+            <!-- Main Headline (Clean, focused—no mention of Rangoli artist here) -->
+            <p class="reveal font-display italic text-2xl sm:text-3xl text-champagne/95 tracking-wide mb-7">
+              Civil Engineering Student &amp; Student Researcher
+            </p>
+
+            <!-- Refined Editorial Bio -->
+            <p class="reveal text-sm sm:text-base leading-[1.85] font-light text-ivory/85 mb-10 max-w-[570px]">
+              First-year Civil Engineering undergraduate at Government Engineering College, Modasa and an aspiring researcher exploring sustainable building materials. Over the past three years, I have mentored high school students in science and social science, while leading social media and reporting initiatives on campus and competing on the badminton court.
+            </p>
+
+            <!-- Left-Aligned Action Buttons -->
+            <div class="reveal flex flex-wrap items-center gap-4">
+              <a href="#blueprint" class="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-champagne text-midnight font-medium text-sm tracking-wide hover:bg-goldSoft hover:shadow-gold-halo transition-all">
+                <span>Explore 4-Year Blueprint</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </a>
+              <a id="hero-mailto-btn" href="mailto:pranshupatel458@gmail.com" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full border border-champagne/50 bg-midnight/45 backdrop-blur-md text-ivory font-normal text-sm tracking-wide hover:border-goldSoft hover:bg-champagne/15 hover:text-goldSoft transition-all">
+                <span>Get in Touch</span>
+                <svg class="w-4 h-4 text-champagne" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subtle Bottom-Right Architectural Coordinate & Scroll Cue (Center stays 100% uncluttered) -->
+        <div class="hidden md:flex items-center gap-4 absolute bottom-8 right-8 lg:right-12 px-4 py-2.5 rounded-full border border-champagne/20 bg-midnight/50 backdrop-blur-md">
+          <span class="font-mono text-[10px] tracking-[0.22em] text-ivory/75 uppercase">23.5977° N, 72.9698° E &bull; SEM <span id="hero-coord-sem">01</span>/08</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-champagne animate-pulse"></span>
+        </div>
+      </section>
+
+      <!-- ==================== 5. ABOUT & EDUCATION SECTION ==================== -->
+      <section id="about" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 scroll-mt-20">
+        <div class="max-w-7xl mx-auto">
+          <div class="mb-12 reveal">
+            <span class="font-mono text-[11px] uppercase tracking-[0.3em] text-champagne">01 &bull; Academic Profile</span>
+            <h2 class="font-display text-4xl sm:text-5xl font-medium text-ivory mt-2">
+              About &amp; <span class="italic text-goldSoft">Education</span>
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+            <!-- Profile Monogram / Headshot Card -->
+            <div class="lg:col-span-4 reveal glass-card rounded-3xl p-7 sm:p-8 flex flex-col items-center justify-center text-center">
+              <div class="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full p-1.5 border border-champagne/45 mb-6 shadow-gold-halo">
+                <div class="w-full h-full rounded-full bg-gradient-to-br from-indigoDeep via-prussian to-midnight flex items-center justify-center overflow-hidden border border-champagne/25">
+                  <!-- Default Golden PP Monogram -->
+                  <div id="about-monogram" class="flex flex-col items-center justify-center select-none">
+                    <span class="font-display font-medium text-5xl tracking-[0.06em] text-goldSoft leading-none">PP</span>
+                    <span class="font-mono text-[9px] uppercase tracking-[0.28em] text-champagne/75 mt-1.5">B.E. Civil</span>
+                  </div>
+                  <!-- Optional Headshot Image (auto-populated if PORTFOLIO_CONFIG.profileImageUrl is set) -->
+                  <img id="about-headshot" src="" alt="Patel Pranshu portrait" class="hidden w-full h-full object-cover" />
+                </div>
+              </div>
+
+              <h3 class="font-display text-3xl font-medium text-ivory">Patel Pranshu</h3>
+              <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-champagne mt-1.5">Himatnagar, Gujarat</p>
+              <div class="w-12 h-px bg-champagne/35 my-5"></div>
+              <p class="text-xs sm:text-sm font-light text-ivory/75 leading-relaxed">
+                Bridging sustainable civil engineering curiosity with academic research, student mentorship, and athletic discipline.
+              </p>
+            </div>
+
+            <!-- Education Credentials Card -->
+            <div class="lg:col-span-8 reveal glass-card rounded-3xl p-7 sm:p-9 flex flex-col justify-between">
+              <div>
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+                  <span class="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-champagne">
+                    <span class="w-2 h-2 rounded-full bg-champagne"></span>
+                    Undergraduate Degree
+                  </span>
+                  <span class="font-mono text-xs px-3.5 py-1 rounded-full border border-champagne/30 bg-champagne/10 text-goldSoft">
+                    1st Semester &bull; 2026 – 2030
+                  </span>
+                </div>
+
+                <h3 class="font-display text-3xl sm:text-4xl font-medium text-ivory leading-snug mb-2">
+                  Bachelor of Engineering in Civil Engineering
+                </h3>
+                <p class="text-base sm:text-lg font-normal text-goldSoft/90 mb-1">
+                  Government Engineering College (GEC), Modasa
+                </p>
+                <p class="font-mono text-xs text-blueprintCyan/85 tracking-wide mb-6">
+                  Affiliated with Gujarat Technological University (GTU)
+                </p>
+
+                <p class="text-sm sm:text-base font-light text-ivory/80 leading-[1.85] mb-7">
+                  Currently in my first semester, building an engineering foundation rooted in structural thinking, computational problem-solving in C programming, and academic inquiry into sustainable materials and eco-conscious construction practices.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-6 border-t border-champagne/15">
+                <div class="p-4 rounded-2xl bg-midnight/55 border border-champagne/15">
+                  <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne/80">Hometown</p>
+                  <p class="font-display text-xl text-ivory mt-1">Himatnagar, Gujarat</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-midnight/55 border border-champagne/15">
+                  <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne/80">Research Focus</p>
+                  <p class="font-display text-xl text-ivory mt-1">Sustainable Materials</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-midnight/55 border border-champagne/15">
+                  <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne/80">Current Stage</p>
+                  <p id="about-stage-text" class="font-display text-xl text-goldSoft mt-1">Semester 1 of 8</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 6. SIGNATURE INTERACTIVE SECTION: PETRONAS TWIN TOWERS 8-SEMESTER BLUEPRINT ==================== -->
+      <section id="blueprint" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 scroll-mt-20">
+        <div class="max-w-7xl mx-auto">
+
+          <!-- Section Header -->
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 reveal">
+            <div>
+              <span class="font-mono text-[11px] uppercase tracking-[0.3em] text-champagne">02 &bull; Interactive 4-Year Architectural Journey</span>
+              <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-medium text-ivory mt-2">
+                The 8-Semester <span class="italic text-goldSoft">Blueprint</span>
+              </h2>
+              <p class="font-display italic text-xl sm:text-2xl text-ivory/80 mt-2">
+                Petronas Twin Towers &bull; Rising Floor by Floor Across My B.E. Degree
+              </p>
+            </div>
+
+            <!-- Quick Playback & Reset Controls -->
+            <div class="flex flex-wrap items-center gap-3">
+              <button id="btn-timelapse" type="button" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-champagne text-midnight font-medium text-xs sm:text-sm tracking-wide hover:bg-goldSoft hover:shadow-gold-halo transition-all cursor-pointer">
+                <svg id="timelapse-play-icon" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                </svg>
+                <svg id="timelapse-pause-icon" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.75 3a.75.75 0 00-.75.75v12.5c0 .414.336.75.75.75h1.5a.75.75 0 00.75-.75V3.75A.75.75 0 007.25 3h-1.5zm7 0a.75.75 0 00-.75.75v12.5c0 .414.336.75.75.75h1.5a.75.75 0 00.75-.75V3.75a.75.75 0 00-.75-.75h-1.5z" clip-rule="evenodd" />
+                </svg>
+                <span id="timelapse-label">Play 4-Year Time-Lapse</span>
+              </button>
+
+              <button id="btn-reset-current" type="button" class="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-champagne/40 bg-midnight/65 backdrop-blur-md text-ivory font-normal text-xs sm:text-sm hover:border-goldSoft hover:bg-champagne/15 transition-all cursor-pointer">
+                <svg class="w-4 h-4 text-champagne" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
+                </svg>
+                <span id="reset-btn-label">Current Progress (Sem 1)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Two-Column Architectural Studio -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+
+            <!-- LEFT / MAIN: Petronas Twin Towers SVG layered directly over Van Gogh's Starry Night -->
+            <div class="lg:col-span-7 reveal rounded-3xl border border-champagne/25 overflow-hidden shadow-glass-panel petronas-canvas-frame flex flex-col justify-between">
+              <div class="architectural-grid-overlay p-5 sm:p-7 flex-1 flex flex-col justify-between">
+                <!-- Technical Sheet Metadata Header -->
+                <div class="flex flex-wrap items-center justify-between gap-2 pb-3 mb-2 border-b border-champagne/20 font-mono text-[10px] sm:text-[11px] tracking-[0.18em]">
+                  <span class="text-ivory/80 uppercase">ELEVATION: PETRONAS TWIN TOWERS, KL</span>
+                  <span id="blueprint-height-readout" class="text-goldSoft">BUILT ELEVATION: +62.0m / 451.9m</span>
+                </div>
+
+                <!-- Precision Architectural SVG: Petronas Twin Towers (8 Symmetrical Construction Stages) -->
+                <div class="w-full flex items-center justify-center my-auto py-2">
+                  <svg id="petronas-svg" viewBox="0 0 600 660" class="w-full h-auto max-h-[600px] select-none" role="img" aria-label="Interactive 8-semester Petronas Twin Towers architectural blueprint">
+                    <defs>
+                      <!-- Metallic Steel & Champagne Glass Facade Gradients -->
+                      <linearGradient id="towerSteelGrad" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#0b1833" stop-opacity="0.94" />
+                        <stop offset="28%" stop-color="#193361" stop-opacity="0.94" />
+                        <stop offset="50%" stop-color="#274b85" stop-opacity="0.95" />
+                        <stop offset="72%" stop-color="#162d57" stop-opacity="0.94" />
+                        <stop offset="100%" stop-color="#0a152d" stop-opacity="0.95" />
+                      </linearGradient>
+
+                      <linearGradient id="goldBandGrad" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#c99a3a" stop-opacity="0.72" />
+                        <stop offset="50%" stop-color="#fff0bc" stop-opacity="0.96" />
+                        <stop offset="100%" stop-color="#c99a3a" stop-opacity="0.72" />
+                      </linearGradient>
+
+                      <linearGradient id="spireGoldGrad" x1="0" y1="1" x2="0" y2="0">
+                        <stop offset="0%" stop-color="#c89a3b" />
+                        <stop offset="60%" stop-color="#f6df9b" />
+                        <stop offset="100%" stop-color="#fffbe6" />
+                      </linearGradient>
+
+                      <linearGradient id="skybridgeDeckGrad" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#e8c468" />
+                        <stop offset="50%" stop-color="#fff4cc" />
+                        <stop offset="100%" stop-color="#e8c468" />
+                      </linearGradient>
+
+                      <filter id="archGlow" x="-25%" y="-25%" width="150%" height="150%">
+                        <feGaussianBlur stdDeviation="2.6" result="blur" />
+                        <feMerge>
+                          <feMergeNode in="blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+
+                    <!-- Left Architectural Elevation Datum Scale -->
+                    <g font-family="JetBrains Mono, monospace" font-size="8.5" fill="rgba(186,230,253,0.78)">
+                      <line x1="56" y1="46" x2="56" y2="612" stroke="rgba(125,211,252,0.28)" stroke-width="1" stroke-dasharray="3 4" />
+                      <g data-datum="8"><line x1="48" y1="46" x2="64" y2="46" stroke="currentColor" /><text x="8" y="49">451.9m</text></g>
+                      <g data-datum="7"><line x1="48" y1="142" x2="64" y2="142" stroke="currentColor" /><text x="10" y="145">378.0m</text></g>
+                      <g data-datum="6"><line x1="48" y1="198" x2="64" y2="198" stroke="currentColor" /><text x="10" y="201">324.0m</text></g>
+                      <g data-datum="5"><line x1="48" y1="254" x2="64" y2="254" stroke="currentColor" /><text x="10" y="257">272.0m</text></g>
+                      <g data-datum="4"><line x1="48" y1="316" x2="64" y2="316" stroke="currentColor" /><text x="10" y="319">215.0m</text></g>
+                      <g data-datum="3"><line x1="48" y1="384" x2="64" y2="384" stroke="currentColor" /><text x="10" y="387">158.0m</text></g>
+                      <g data-datum="2"><line x1="48" y1="452" x2="64" y2="452" stroke="currentColor" /><text x="10" y="455">110.0m</text></g>
+                      <g data-datum="1"><line x1="48" y1="520" x2="64" y2="520" stroke="#e8c468" /><text x="14" y="523" fill="#e8c468">62.0m</text></g>
+                      <g data-datum="1"><line x1="48" y1="612" x2="64" y2="612" stroke="#e8c468" /><text x="16" y="615" fill="#e8c468">±0.0m</text></g>
+                    </g>
+
+                    <!-- Architectural Center Axis Lines for Tower 1 (x=195) & Tower 2 (x=405) -->
+                    <g stroke="rgba(125,211,252,0.16)" stroke-width="0.75" stroke-dasharray="4 6">
+                      <line x1="195" y1="30" x2="195" y2="635" />
+                      <line x1="405" y1="30" x2="405" y2="635" />
+                    </g>
+
+                    <!-- Ground Datum Horizon Line -->
+                    <line x1="72" y1="612" x2="546" y2="612" stroke="#e8c468" stroke-width="1.6" />
+                    <text x="514" y="626" font-family="JetBrains Mono, monospace" font-size="8" fill="rgba(232,196,104,0.75)">GL ±0.0</text>
+
+                    <!-- ==================== STAGE 1 (SEM 1): FOUNDATION, PODIUM & LOWER LOBBY TIERS ==================== -->
+                    <g id="stage-1" class="tower-stage cursor-pointer" data-sem="1">
+                      <!-- Wireframe -->
+                      <g class="stage-wireframe" fill="none" stroke="#7dd3fc" stroke-width="1" stroke-dasharray="4 3">
+                        <rect x="96" y="564" width="408" height="48" />
+                        <rect x="133" y="520" width="124" height="44" />
+                        <rect x="343" y="520" width="124" height="44" />
+                      </g>
+                      <!-- Built -->
+                      <g class="stage-built">
+                        <!-- Deep Raft Foundation Pilings -->
+                        <g stroke="#e8c468" stroke-width="1" fill="rgba(9,19,41,0.88)">
+                          <rect x="136" y="612" width="12" height="30" />
+                          <rect x="189" y="612" width="12" height="32" />
+                          <rect x="242" y="612" width="12" height="30" />
+                          <rect x="346" y="612" width="12" height="30" />
+                          <rect x="399" y="612" width="12" height="32" />
+                          <rect x="452" y="612" width="12" height="30" />
+                          <rect x="122" y="612" width="356" height="7" fill="#17305e" />
+                        </g>
+                        <!-- Connecting Architectural Podium & Lobby Concourse -->
+                        <rect x="96" y="564" width="408" height="48" fill="url(#towerSteelGrad)" stroke="#e8c468" stroke-width="1.3" />
+                        <!-- Illuminated Podium Horizontal Ribbon Windows -->
+                        <rect x="108" y="574" width="384" height="8" rx="1" fill="url(#goldBandGrad)" opacity="0.88" />
+                        <rect x="108" y="590" width="384" height="10" rx="1" fill="url(#goldBandGrad)" opacity="0.72" />
+                        <!-- Central Concourse Arch Portal -->
+                        <path d="M 278 612 L 278 584 A 22 20 0 0 1 322 584 L 322 612 Z" fill="#f6df9b" filter="url(#archGlow)" opacity="0.9" />
+                        <line x1="300" y1="566" x2="300" y2="612" stroke="#091329" stroke-width="1.5" />
+
+                        <!-- Tower 1 Lower Lobby Base -->
+                        <rect x="133" y="520" width="124" height="44" fill="url(#towerSteelGrad)" stroke="#e8c468" stroke-width="1.35" />
+                        <!-- Tower 2 Lower Lobby Base -->
+                        <rect x="343" y="520" width="124" height="44" fill="url(#towerSteelGrad)" stroke="#e8c468" stroke-width="1.35" />
+                        <!-- Illuminated Floor Striations (T1 & T2) -->
+                        <g fill="url(#goldBandGrad)" opacity="0.85">
+                          <rect x="139" y="527" width="112" height="4" /><rect x="139" y="537" width="112" height="4" /><rect x="139" y="547" width="112" height="4" /><rect x="139" y="556" width="112" height="3.5" />
+                          <rect x="349" y="527" width="112" height="4" /><rect x="349" y="537" width="112" height="4" /><rect x="349" y="547" width="112" height="4" /><rect x="349" y="556" width="112" height="3.5" />
+                        </g>
+                        <!-- Vertical Fluted Mullions (8-Pointed Star Facade Rhythm) -->
+                        <g stroke="rgba(9,19,41,0.85)" stroke-width="1.4">
+                          <path d="M153 520V564 M174 520V564 M195 520V564 M216 520V564 M237 520V564" />
+                          <path d="M363 520V564 M384 520V564 M405 520V564 M426 520V564 M447 520V564" />
+                        </g>
+                      </g>
+                      <path class="stage-active-bracket" d="M 84 520 L 77 520 L 77 612 L 84 612 M 516 520 L 523 520 L 523 612 L 516 612" stroke="#f6df9b" stroke-width="2" fill="none" />
+                    </g>
+
+                    <!-- ==================== STAGE 2 (SEM 2): LOWER CORE SHAFTS ==================== -->
+                    <g id="stage-2" class="tower-stage cursor-pointer" data-sem="2">
+                      <g class="stage-wireframe" fill="none" stroke="#7dd3fc" stroke-width="1" stroke-dasharray="4 3">
+                        <rect x="136" y="452" width="118" height="68" />
+                        <rect x="346" y="452" width="118" height="68" />
+                        <path d="M136 474H254 M136 496H254 M346 474H464 M346 496H464" stroke-opacity="0.45" />
+                      </g>
+                      <g class="stage-built">
+                        <rect x="136" y="452" width="118" height="68" fill="url(#towerSteelGrad)" stroke="#e8c468" stroke-width="1.3" />
+                        <rect x="346" y="452" width="118" height="68" fill="url(#towerSteelGrad)" stroke="#e8c468" stroke-width="1.3" />
+                        <!-- Fine Horizontal Petronas Floor Louvers -->
+                        <g fill="url(#goldBandGrad)" opacity="0.82">
+                          <rect x="142" y="459" width="106" height="3.5" /><rect x="142" y="469" width="106" height="3.5" /><rect x="142" y="479" width="106" height="3.5" /><rect x="142" y="489" width="106" height="3.5" /><rect x="142" y="499" width="106" height="3.5" /><rect x="142" y="509" width="106" height="3.5" />
+                          <rect x="352" y="459" width="106" height="3.5" /><rect x="352" y="469" width="106" height="3.5" /><rect x="352" y="479" width="106" height="3.5" /><rect x="352" y="489" width="106" height="3.5" /><rect x="352" y="499" width="106" height="3.5" /><rect x="352" y="509" width="106" height="3.5" />
+                        </g>
+                        <!-- Vertical Mullions -->
+                        <g stroke="rgba(9,19,41,0.85)" stroke-width="1.35">
+                          <path d="M156 452V520 M176 452V520 M195 452V520 M214 452V520 M234 452V520" />
+                          <path d="M366 452V520 M386 452V520 M405 452V520 M424 452V520 M444 452V520" />
+                        </g>
+                      </g>
+                      <path class="stage-active-bracket" d="M 124 452 L 117 452 L 117 519 L 124 519 M 476 452 L 483 452 L 483 519 L 476 519" stroke="#f6df9b" stroke-width="2" fill="none" />
+                    </g>
+
+                    <!-- ==================== STAGE 3 (SEM 3): MID-LOWER STRUCTURAL TIERS ==================== -->
+                    <g id="stage-3" class="tower-stage cursor-pointer" data-sem="3">
+                      <g class="stage-wireframe" fill="none" stroke="#7dd3fc" stroke-width="1" stroke-dasharray="4 3">
+                        <rect x="140" y="384" width="110" height="68" />
+                        <rect x="350" y="384" width="110" height="68" />
+                        <path d="M140 406H250 M140 428H250 M350 406H460 M350 428H460" stroke-opacity="0.45" />
+                      </g>
+                      <g class="stage-built">
+                        <!-- Subtle Stepped Setback Ledge -->
+                        <rect x="137" y="449" width="116" height="3.5" fill="#e8c468" opacity="0.8" />
+                        <rect x="347" y="449" width="116" height="3.5" fill="#e8c468" opacity="0.8" />
+                        <!-- Shafts -->
+                        <rect x="140" y="384" width="110" height="68" fill="url(#towerSteelGrad)" stroke="#e8c468" stroke-width="1.3" />
+                        <rect x="350" y="384" width="110" height="68" fill="url(#towerSteelGrad)" stroke="#e8c468" stroke-width="1.3" />
+                        <g fill="url(#goldBandGrad)" opacity="0.84">
+                          <rect x="146" y="391" width="98" height="3.5" /><rect x="146" y="401" width="98" height="3.5" /><rect x="146" y="411" width="98" height="3.5" /><rect x="146" y="421" width="98" height="3.5" /><rect x="146" y="431" width="98" height="3.5" /><rect x="146" y="441" width="98" height="3.5" />
+                          <rect x="356" y="391" width="98" height="3.5" /><rect x="356" y="401" width="98" height="3.5" /><rect x="356" y="411" width="98" height="3.5" /><rect x="356" y="421" width="98" height="3.5" /><rect x="356" y="431" width="98" height="3.5" /><rect x="356" y="441" width="98" height="3.5" />
+                        </g>
+                        <g stroke="rgba(9,19,41,0.85)" stroke-width="1.3">
+                          <path d="M159 384V452 M177 384V452 M195 384V452 M213 384V452 M231 384V452" />
+                          <path d="M369 384V452 M387 384V452 M405 384V452 M423 384V452 M441 384V452" />
+                        </g>
+                      </g>
+                      <path class="stage-active-bracket" d="M 128 384 L 121 384 L 121 451 L 128 451 M 472 384 L 479 384 L 479 451 L 472 451" stroke="#f6df9b" stroke-width="2" fill="none" />
+                    </g>
+
+                    <!-- ==================== STAGE 4 (SEM 4): ICONIC DOUBLE-DECKER SKYBRIDGE & MID-TOWER LINK ==================== -->
+                    <g id="stage-4" class="tower-stage cursor-pointer" data-sem="4">
+                      <!-- Blueprint Wireframe including Skybridge & Angled Support Legs -->
+                      <g class="stage-wireframe" fill="none" stroke="#7dd3fc" stroke-width="1.05" stroke-dasharray="4 3">
+                        <rect x="143" y="316" width="104" height="68" />
+                        <rect x="353" y="316" width="104" height="68" />
+                        <!-- Skybridge Wireframe -->
+                        <rect x="247" y="342" width="106" height="22" stroke="#e8c468" />
+                        <line x1="247" y1="353" x2="353" y2="353" stroke="#e8c468" />
+                        <!-- Iconic Angled V-Support Legs Wireframe -->
+                        <line x1="247" y1="432" x2="294" y2="364" stroke="#e8c468" />
+                        <line x1="353" y1="432" x2="306" y2="364" stroke="#e8c468" />
+                        <circle cx="300" cy="370" r="6" stroke="#e8c468" />
+                      </g>
+                      <!-- Built Architecture: Mid-Tower Shafts + Double-Decker Skybridge + Angled Legs -->
+                      <g class="stage-built">
+                        <!-- Mid-Tower Shafts -->
+                        <rect x="143" y="316" width="104" height="68" fill="url(#towerSteelGrad)" stroke="#e8c468" stroke-width="1.3" />
+                        <rect x="353" y="316" width="104" height="68" fill="url(#towerSteelGrad)" stroke="#e8c468" stroke-width="1.3" />
+                        <g fill="url(#goldBandGrad)" opacity="0.86">
+                          <rect x="149" y="323" width="92" height="3.5" /><rect x="149" y="333" width="92" height="3.5" /><rect x="149" y="343" width="92" height="3.5" /><rect x="149" y="353" width="92" height="3.5" /><rect x="149" y="363" width="92" height="3.5" /><rect x="149" y="373" width="92" height="3.5" />
+                          <rect x="359" y="323" width="92" height="3.5" /><rect x="359" y="333" width="92" height="3.5" /><rect x="359" y="343" width="92" height="3.5" /><rect x="359" y="353" width="92" height="3.5" /><rect x="359" y="363" width="92" height="3.5" /><rect x="359" y="373" width="92" height="3.5" />
+                        </g>
+                        <g stroke="rgba(9,19,41,0.85)" stroke-width="1.25">
+                          <path d="M161 316V384 M178 316V384 M195 316V384 M212 316V384 M229 316V384" />
+                          <path d="M371 316V384 M388 316V384 M405 316V384 M422 316V384 M439 316V384" />
+                        </g>
+
+                        <!-- ICONIC PETRONAS ANGLED SUPPORT LEGS (3-Hinged Arch Support) -->
+                        <g stroke="#f6df9b" stroke-linecap="round">
+                          <line x1="248" y1="434" x2="294" y2="365" stroke-width="3.4" />
+                          <line x1="352" y1="434" x2="306" y2="365" stroke-width="3.4" />
+                          <!-- Inner Twin Steel Struts -->
+                          <line x1="250" y1="422" x2="296" y2="365" stroke="#0d1d3e" stroke-width="1.2" />
+                          <line x1="350" y1="422" x2="304" y2="365" stroke="#0d1d3e" stroke-width="1.2" />
+                          <!-- Central Spherical Pin Joint & Tie -->
+                          <circle cx="300" cy="368" r="5.5" fill="#0d1d3e" stroke="#f6df9b" stroke-width="1.8" />
+                          <line x1="276" y1="392" x2="324" y2="392" stroke="#e8c468" stroke-width="1.4" opacity="0.85" />
+                        </g>
+
+                        <!-- ICONIC DOUBLE-DECKER SKYBRIDGE (Levels 41 & 42) -->
+                        <g filter="url(#archGlow)">
+                          <rect x="246" y="341" width="108" height="24" rx="1.5" fill="#0c1b3a" stroke="#f6df9b" stroke-width="1.6" />
+                          <!-- Upper Skybridge Deck (Level 42) -->
+                          <rect x="250" y="344" width="100" height="7" fill="url(#skybridgeDeckGrad)" opacity="0.95" />
+                          <!-- Lower Skybridge Deck (Level 41) -->
+                          <rect x="250" y="355" width="100" height="7" fill="url(#skybridgeDeckGrad)" opacity="0.95" />
+                          <!-- Glass Bridge Vertical Mullions -->
+                          <path d="M264 341V365 M278 341V365 M292 341V365 M308 341V365 M322 341V365 M336 341V365" stroke="#0b1730" stroke-width="1.3" />
+                        </g>
+                      </g>
+                      <path class="stage-active-bracket" d="M 131 316 L 124 316 L 124 383 L 131 383 M 469 316 L 476 316 L 476 383 L 469 383" stroke="#f6df9b" stroke-width="2" fill="none" />
+                    </g>
+
+                    <!-- ==================== STAGE 5 (SEM 5): UPPER-MID SETBACK TIERS ==================== -->
+                    <g id="stage-5" class="tower-stage cursor-pointer" data-sem="5">
+                      <g class="stage-wireframe" fill="none" stroke="#7dd3fc" stroke-width="1" stroke-dasharray="4 3">
+                        <rect x="149" y="254" width="92" height="62" />
+                        <rect x="359" y="254" width="92" height="62" />
+                        <path d="M149 275H241 M149 295H241 M359 275H451 M359 295H451" stroke-opacity="0.45" />
+                      </g>
+                      <g class="stage-built">
+                        <!-- Setback Collar -->
+                        <rect x="144" y="313" width="102" height="3.5" fill="#e8c468" />
+                        <rect x="354" y="313" width="102" height="3.5" fill="#e8c468" />
+                        <rect x="149" y="254" width="92" height="62" fill="url(#towerSteelGrad)" stroke="#e8c468" stroke-width="1.3" />
+                        <rect x="359" y="254" width="92" height="62" fill="url(#towerSteelGrad)" stroke="#e8c468" stroke-width="1.3" />
+                        <g fill="url(#goldBandGrad)" opacity="0.86">
+                          <rect x="155" y="261" width="80" height="3.5" /><rect x="155" y="271" width="80" height="3.5" /><rect x="155" y="281" width="80" height="3.5" /><rect x="155" y="291" width="80" height="3.5" /><rect x="155" y="301" width="80" height="3.5" />
+                          <rect x="365" y="261" width="80" height="3.5" /><rect x="365" y="271" width="80" height="3.5" /><rect x="365" y="281" width="80" height="3.5" /><rect x="365" y="291" width="80" height="3.5" /><rect x="365" y="301" width="80" height="3.5" />
+                        </g>
+                        <g stroke="rgba(9,19,41,0.85)" stroke-width="1.2">
+                          <path d="M167 254V316 M181 254V316 M195 254V316 M209 254V316 M223 254V316" />
+                          <path d="M377 254V316 M391 254V316 M405 254V316 M419 254V316 M433 254V316" />
+                        </g>
+                      </g>
+                      <path class="stage-active-bracket" d="M 137 254 L 130 254 L 130 315 L 137 315 M 463 254 L 470 254 L 470 315 L 463 315" stroke="#f6df9b" stroke-width="2" fill="none" />
+                    </g>
+
+                    <!-- ==================== STAGE 6 (SEM 6): UPPER STRUCTURAL SHAFTS & OBSERVATION LEVELS ==================== -->
+                    <g id="stage-6" class="tower-stage cursor-pointer" data-sem="6">
+                      <g class="stage-wireframe" fill="none" stroke="#7dd3fc" stroke-width="1" stroke-dasharray="4 3">
+                        <rect x="156" y="198" width="78" height="56" />
+                        <rect x="366" y="198" width="78" height="56" />
+                        <path d="M156 218H234 M156 236H234 M366 218H444 M366 236H444" stroke-opacity="0.45" />
+                      </g>
+                      <g class="stage-built">
+                        <!-- Setback Collar -->
+                        <rect x="150" y="251" width="90" height="3.5" fill="#e8c468" />
+                        <rect x="360" y="251" width="90" height="3.5" fill="#e8c468" />
+                        <rect x="156" y="198" width="78" height="56" fill="url(#towerSteelGrad)" stroke="#e8c468" stroke-width="1.3" />
+                        <rect x="366" y="198" width="78" height="56" fill="url(#towerSteelGrad)" stroke="#e8c468" stroke-width="1.3" />
+                        <!-- Luminous Observation Deck Band (Level 86) -->
+                        <rect x="160" y="204" width="70" height="9" rx="1" fill="url(#skybridgeDeckGrad)" filter="url(#archGlow)" opacity="0.95" />
+                        <rect x="370" y="204" width="70" height="9" rx="1" fill="url(#skybridgeDeckGrad)" filter="url(#archGlow)" opacity="0.95" />
+                        <g fill="url(#goldBandGrad)" opacity="0.85">
+                          <rect x="161" y="220" width="68" height="3.5" /><rect x="161" y="230" width="68" height="3.5" /><rect x="161" y="240" width="68" height="3.5" />
+                          <rect x="371" y="220" width="68" height="3.5" /><rect x="371" y="230" width="68" height="3.5" /><rect x="371" y="240" width="68" height="3.5" />
+                        </g>
+                        <g stroke="rgba(9,19,41,0.85)" stroke-width="1.2">
+                          <path d="M172 198V254 M184 198V254 M195 198V254 M206 198V254 M218 198V254" />
+                          <path d="M382 198V254 M394 198V254 M405 198V254 M416 198V254 M428 198V254" />
+                        </g>
+                      </g>
+                      <path class="stage-active-bracket" d="M 144 198 L 137 198 L 137 253 L 144 253 M 456 198 L 463 198 L 463 253 L 456 253" stroke="#f6df9b" stroke-width="2" fill="none" />
+                    </g>
+
+                    <!-- ==================== STAGE 7 (SEM 7): CROWN TIER & SPIRE BASES ==================== -->
+                    <g id="stage-7" class="tower-stage cursor-pointer" data-sem="7">
+                      <g class="stage-wireframe" fill="none" stroke="#7dd3fc" stroke-width="1" stroke-dasharray="4 3">
+                        <rect x="165" y="174" width="60" height="24" />
+                        <rect x="174" y="156" width="42" height="18" />
+                        <rect x="183" y="142" width="24" height="14" />
+                        <rect x="375" y="174" width="60" height="24" />
+                        <rect x="384" y="156" width="42" height="18" />
+                        <rect x="393" y="142" width="24" height="14" />
+                      </g>
+                      <g class="stage-built">
+                        <!-- Multi-Tiered Petronas Tapered Crown (Tower 1) -->
+                        <rect x="157" y="195" width="76" height="3.5" fill="#f6df9b" />
+                        <rect x="165" y="174" width="60" height="24" fill="url(#towerSteelGrad)" stroke="#f6df9b" stroke-width="1.3" />
+                        <rect x="170" y="180" width="50" height="4" fill="url(#goldBandGrad)" />
+                        <rect x="170" y="188" width="50" height="4" fill="url(#goldBandGrad)" />
+                        <rect x="174" y="156" width="42" height="18" fill="url(#towerSteelGrad)" stroke="#f6df9b" stroke-width="1.3" />
+                        <rect x="179" y="162" width="32" height="6" fill="url(#skybridgeDeckGrad)" opacity="0.9" />
+                        <rect x="183" y="142" width="24" height="14" fill="#173263" stroke="#f6df9b" stroke-width="1.3" />
+                        <line x1="195" y1="142" x2="195" y2="198" stroke="#f6df9b" stroke-width="0.9" opacity="0.7" />
+
+                        <!-- Multi-Tiered Petronas Tapered Crown (Tower 2) -->
+                        <rect x="367" y="195" width="76" height="3.5" fill="#f6df9b" />
+                        <rect x="375" y="174" width="60" height="24" fill="url(#towerSteelGrad)" stroke="#f6df9b" stroke-width="1.3" />
+                        <rect x="380" y="180" width="50" height="4" fill="url(#goldBandGrad)" />
+                        <rect x="380" y="188" width="50" height="4" fill="url(#goldBandGrad)" />
+                        <rect x="384" y="156" width="42" height="18" fill="url(#towerSteelGrad)" stroke="#f6df9b" stroke-width="1.3" />
+                        <rect x="389" y="162" width="32" height="6" fill="url(#skybridgeDeckGrad)" opacity="0.9" />
+                        <rect x="393" y="142" width="24" height="14" fill="#173263" stroke="#f6df9b" stroke-width="1.3" />
+                        <line x1="405" y1="142" x2="405" y2="198" stroke="#f6df9b" stroke-width="0.9" opacity="0.7" />
+                      </g>
+                      <path class="stage-active-bracket" d="M 152 142 L 145 142 L 145 197 L 152 197 M 448 142 L 455 142 L 455 197 L 448 197" stroke="#f6df9b" stroke-width="2" fill="none" />
+                    </g>
+
+                    <!-- ==================== STAGE 8 (SEM 8): TWIN PINNACLES & FULL ILLUMINATION ==================== -->
+                    <g id="stage-8" class="tower-stage cursor-pointer" data-sem="8">
+                      <!-- Wireframe Twin Spires -->
+                      <g class="stage-wireframe" fill="none" stroke="#e8c468" stroke-width="1" stroke-dasharray="3 3">
+                        <polygon points="187,142 195,50 203,142" />
+                        <polygon points="397,142 405,50 413,142" />
+                        <circle cx="195" cy="58" r="3" />
+                        <circle cx="405" cy="58" r="3" />
+                      </g>
+                      <!-- Built Illuminated Twin Pinnacles (451.9m) -->
+                      <g class="stage-built">
+                        <!-- Tower 1 Slender Tapered Pinnacle -->
+                        <polygon points="187,142 193,76 197,76 203,142" fill="url(#spireGoldGrad)" filter="url(#archGlow)" opacity="0.95" />
+                        <!-- Architectural Spire Ring Collars -->
+                        <line x1="186" y1="126" x2="204" y2="126" stroke="#fff6d6" stroke-width="1.4" />
+                        <line x1="189" y1="108" x2="201" y2="108" stroke="#fff6d6" stroke-width="1.3" />
+                        <line x1="191" y1="90" x2="199" y2="90" stroke="#fff6d6" stroke-width="1.2" />
+                        <!-- Upper Needle & Finial Sphere -->
+                        <line x1="195" y1="76" x2="195" y2="46" stroke="#fff9e2" stroke-width="2" filter="url(#archGlow)" />
+                        <circle cx="195" cy="60" r="3.4" fill="#fff6d1" filter="url(#archGlow)" />
+                        <circle cx="195" cy="46" r="2.2" fill="#ffffff" class="spire-beacon" />
+
+                        <!-- Tower 2 Slender Tapered Pinnacle -->
+                        <polygon points="397,142 403,76 407,76 413,142" fill="url(#spireGoldGrad)" filter="url(#archGlow)" opacity="0.95" />
+                        <line x1="396" y1="126" x2="414" y2="126" stroke="#fff6d6" stroke-width="1.4" />
+                        <line x1="399" y1="108" x2="411" y2="108" stroke="#fff6d6" stroke-width="1.3" />
+                        <line x1="401" y1="90" x2="409" y2="90" stroke="#fff6d6" stroke-width="1.2" />
+                        <line x1="405" y1="76" x2="405" y2="46" stroke="#fff9e2" stroke-width="2" filter="url(#archGlow)" />
+                        <circle cx="405" cy="60" r="3.4" fill="#fff6d1" filter="url(#archGlow)" />
+                        <circle cx="405" cy="46" r="2.2" fill="#ffffff" class="spire-beacon" />
+
+                        <!-- Graduation Stamp Between Spires -->
+                        <text x="300" y="54" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="3" fill="#f6df9b">B.E. COMPLETE &bull; 2030</text>
+                      </g>
+                      <path class="stage-active-bracket" d="M 176 46 L 169 46 L 169 141 L 176 141 M 424 46 L 431 46 L 431 141 L 424 141" stroke="#f6df9b" stroke-width="2" fill="none" />
+                    </g>
+                  </svg>
+                </div>
+
+                <!-- Blueprint Legend Footer -->
+                <div class="pt-3 mt-2 border-t border-champagne/20 flex flex-wrap items-center justify-between gap-2 font-mono text-[10px] sm:text-[11px] text-ivory/75">
+                  <div class="flex items-center gap-4">
+                    <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-champagne"></span> Constructed Stage</span>
+                    <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm border border-dashed border-blueprintCyan"></span> Blueprint Wireframe</span>
+                  </div>
+                  <span class="text-goldSoft/90">Tap any tier to inspect</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: Interactive Semester Controls & Live Milestone Detail Card -->
+            <div class="lg:col-span-5 flex flex-col gap-6">
+
+              <!-- Semester 1–8 Pill Buttons + Range Slider -->
+              <div class="reveal glass-card rounded-3xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                  <label for="semester-slider" class="font-mono text-[11px] uppercase tracking-[0.22em] text-champagne">
+                    Construction Progress
+                  </label>
+                  <span id="progress-badge" class="font-mono text-xs px-3 py-1 rounded-full bg-champagne/15 border border-champagne/35 text-goldSoft">
+                    12.5% Built
+                  </span>
+                </div>
+
+                <!-- Range Slider -->
+                <div class="py-2">
+                  <input id="semester-slider" type="range" min="1" max="8" value="1" step="1" class="blueprint-slider" aria-label="Select semester from 1 to 8" />
+                </div>
+
+                <!-- 8 Interactive Semester Pills -->
+                <div id="semester-pills" class="grid grid-cols-4 gap-2 mt-4" role="group" aria-label="Semester 1 to 8 selector">
+                  <!-- Generated dynamically via JS -->
+                </div>
+              </div>
+
+              <!-- Live Milestone Detail Card -->
+              <div class="reveal glass-card rounded-3xl p-6 sm:p-8 flex-1 flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute top-6 right-6 font-mono text-[10px] tracking-[0.25em] text-champagne/50">
+                  STAGE <span id="detail-stage-num">01</span>/08
+                </div>
+
+                <div>
+                  <!-- Status Pill & Year -->
+                  <div class="flex flex-wrap items-center gap-2.5 mb-5">
+                    <span id="detail-status-badge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-mono text-[10px] uppercase tracking-[0.18em] bg-champagne/20 text-goldSoft border border-champagne/40">
+                      <span class="w-1.5 h-1.5 rounded-full bg-champagne animate-pulse"></span>
+                      Current &bull; Built
+                    </span>
+                    <span id="detail-elevation-tag" class="font-mono text-[11px] text-blueprintCyan">0m – 62m</span>
+                  </div>
+
+                  <!-- Architectural Phase Heading -->
+                  <p id="detail-sem-heading" class="font-mono text-[11px] uppercase tracking-[0.22em] text-champagne/90 mb-1.5">
+                    Semester 1 &bull; 2026
+                  </p>
+                  <h3 id="detail-phase-title" class="font-display text-3xl sm:text-4xl font-medium text-ivory leading-tight mb-3">
+                    Foundation, Podium &amp; Lower Lobby Tiers
+                  </h3>
+                  <p id="detail-academic-subtitle" class="text-sm sm:text-[15px] font-medium text-goldSoft/95 mb-3">
+                    Civil Engineering Fundamentals, C Programming &amp; Literature Review Initiation
+                  </p>
+                  <p id="detail-description" class="text-sm font-light text-ivory/80 leading-[1.8] mb-6">
+                    Establishing the structural foundation raft, grand podium, and lower lobby tiers—building first-semester civil fundamentals, mastering C programming logic, and launching research into sustainable building materials.
+                  </p>
+
+                  <!-- Milestone Highlights -->
+                  <div class="pt-4 border-t border-champagne/15">
+                    <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-blueprintCyan/85 mb-3">Stage Milestones</p>
+                    <ul id="detail-milestones" class="space-y-2.5 text-sm font-light text-ivory/85">
+                      <!-- Populated dynamically -->
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Structural Completion Progress Bar -->
+                <div class="mt-7 pt-4 border-t border-champagne/15">
+                  <div class="flex items-center justify-between font-mono text-xs mb-2">
+                    <span class="text-ivory/70">Twin Towers Completion</span>
+                    <span id="detail-percent-text" class="text-goldSoft">12.5%</span>
+                  </div>
+                  <div class="w-full h-2 rounded-full bg-midnight/85 border border-champagne/20 overflow-hidden">
+                    <div id="detail-progress-bar" class="h-full rounded-full bg-gradient-to-r from-blueprintCyan via-champagne to-goldSoft transition-all duration-500" style="width: 12.5%;"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== 7. RESEARCH & EXPERIENCE SECTION ==================== -->
+      <section id="experience" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 scroll-mt-20">
+        <div class="max-w-7xl mx-auto">
+          <div class="mb-12 reveal">
+            <span class="font-mono text-[11px] uppercase tracking-[0.3em] text-champagne">03 &bull; Academic Inquiry &amp; Mentorship</span>
+            <h2 class="font-display text-4xl sm:text-5xl font-medium text-ivory mt-2">
+              Research &amp; <span class="italic text-goldSoft">Experience</span>
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+
+            <!-- Card 1: Sustainable Materials Literature Review -->
+            <article class="reveal glass-card rounded-3xl p-7 sm:p-9 flex flex-col justify-between">
+              <div>
+                <div class="flex items-start justify-between gap-4 mb-6">
+                  <div class="w-12 h-12 rounded-2xl border border-champagne/35 bg-champagne/10 flex items-center justify-center text-champagne shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                  </div>
+                  <span class="inline-flex items-center gap-1.5 font-mono text-[11px] px-3 py-1 rounded-full bg-emerald-400/10 border border-emerald-400/30 text-emerald-300">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Ongoing &bull; Sem 1 &amp; Sem 2
+                  </span>
+                </div>
+
+                <p class="font-mono text-[10px] uppercase tracking-[0.24em] text-champagne mb-2">Student Research</p>
+                <h3 class="font-display text-3xl font-medium text-ivory leading-snug mb-3">
+                  Literature Review: Sustainable Materials &amp; Building
+                </h3>
+                <p class="text-sm sm:text-[15px] font-light text-ivory/80 leading-[1.85]">
+                  Building on prior research experience, I am currently conducting an academic literature review investigating sustainable construction materials, low-impact structural alternatives, and eco-conscious building practices across my first two semesters.
+                </p>
+              </div>
+
+              <div class="mt-7 pt-5 border-t border-champagne/15 flex flex-wrap gap-2">
+                <span class="font-mono text-[11px] px-3 py-1 rounded-full bg-midnight/65 border border-champagne/20 text-ivory/80">Sustainable Materials</span>
+                <span class="font-mono text-[11px] px-3 py-1 rounded-full bg-midnight/65 border border-champagne/20 text-ivory/80">Green Building</span>
+                <span class="font-mono text-[11px] px-3 py-1 rounded-full bg-midnight/65 border border-champagne/20 text-ivory/80">Literature Review</span>
+              </div>
+            </article>
+
+            <!-- Card 2: Max Tuition Classes -->
+            <article class="reveal glass-card rounded-3xl p-7 sm:p-9 flex flex-col justify-between">
+              <div>
+                <div class="flex items-start justify-between gap-4 mb-6">
+                  <div class="w-12 h-12 rounded-2xl border border-blueprintCyan/35 bg-blueprintCyan/10 flex items-center justify-center text-blueprintCyan shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                    </svg>
+                  </div>
+                  <span class="font-mono text-[11px] px-3 py-1 rounded-full bg-champagne/15 border border-champagne/30 text-goldSoft">
+                    3 Years
+                  </span>
+                </div>
+
+                <p class="font-mono text-[10px] uppercase tracking-[0.24em] text-blueprintCyan mb-2">Teaching &amp; Mentorship</p>
+                <h3 class="font-display text-3xl font-medium text-ivory leading-snug mb-3">
+                  Science &amp; Social Science Tutor — Max Tuition Classes
+                </h3>
+                <p class="text-sm sm:text-[15px] font-light text-ivory/80 leading-[1.85]">
+                  Mentored students in Grades 8, 9, and 10 across Science and Social Science for three consecutive years—breaking down complex academic concepts into intuitive lessons, cultivating analytical thinking, and guiding disciplined exam preparation.
+                </p>
+              </div>
+
+              <div class="mt-7 pt-5 border-t border-champagne/15 flex flex-wrap gap-2">
+                <span class="font-mono text-[11px] px-3 py-1 rounded-full bg-midnight/65 border border-champagne/20 text-ivory/80">Grades 8, 9 &amp; 10</span>
+                <span class="font-mono text-[11px] px-3 py-1 rounded-full bg-midnight/65 border border-champagne/20 text-ivory/80">Science</span>
+                <span class="font-mono text-[11px] px-3 py-1 rounded-full bg-midnight/65 border border-champagne/20 text-ivory/80">Social Science</span>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 8. SKILLS SECTION ==================== -->
+      <section id="skills" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 scroll-mt-20">
+        <div class="max-w-7xl mx-auto">
+          <div class="mb-12 reveal">
+            <span class="font-mono text-[11px] uppercase tracking-[0.3em] text-champagne">04 &bull; Capabilities &amp; Craft</span>
+            <h2 class="font-display text-4xl sm:text-5xl font-medium text-ivory mt-2">
+              Skills &amp; <span class="italic text-goldSoft">Strengths</span>
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+
+            <!-- Card 1: Technical & Analytical -->
+            <div class="reveal glass-card rounded-3xl p-7 sm:p-9">
+              <div class="flex items-center justify-between mb-7 pb-4 border-b border-champagne/15">
+                <div>
+                  <h3 class="font-display text-3xl font-medium text-ivory">Technical &amp; Analytical</h3>
+                  <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-champagne/80 mt-1">Academic &amp; Digital Foundation</p>
+                </div>
+                <span class="font-mono text-xs text-blueprintCyan/80">05</span>
+              </div>
+
+              <ul class="space-y-4">
+                <li class="flex items-center justify-between gap-4 p-3.5 rounded-2xl bg-midnight/50 border border-champagne/15">
+                  <span class="text-sm sm:text-[15px] font-normal text-ivory">Research &amp; Academic Writing</span>
+                  <span class="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-400/10 text-emerald-300 border border-emerald-400/30 shrink-0">Developing</span>
+                </li>
+                <li class="flex items-center justify-between gap-4 p-3.5 rounded-2xl bg-midnight/50 border border-champagne/15">
+                  <span class="text-sm sm:text-[15px] font-normal text-ivory">C Programming</span>
+                  <span class="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-champagne/10 text-goldSoft border border-champagne/25 shrink-0">Coursework</span>
+                </li>
+                <li class="flex items-center justify-between gap-4 p-3.5 rounded-2xl bg-midnight/50 border border-champagne/15">
+                  <span class="text-sm sm:text-[15px] font-normal text-ivory">MS Excel</span>
+                  <span class="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-champagne/10 text-goldSoft border border-champagne/25 shrink-0">Spreadsheets</span>
+                </li>
+                <li class="flex items-center justify-between gap-4 p-3.5 rounded-2xl bg-midnight/50 border border-champagne/15">
+                  <span class="text-sm sm:text-[15px] font-normal text-ivory">Social Media Analytics</span>
+                  <span class="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-blueprintCyan/10 text-blueprintCyan border border-blueprintCyan/25 shrink-0">Committee Head</span>
+                </li>
+                <li class="flex items-center justify-between gap-4 p-3.5 rounded-2xl bg-midnight/50 border border-champagne/15">
+                  <span class="text-sm sm:text-[15px] font-normal text-ivory">Report Documentation</span>
+                  <span class="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-blueprintCyan/10 text-blueprintCyan border border-blueprintCyan/25 shrink-0">Committee Head</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 2: Leadership & Communication -->
+            <div class="reveal glass-card rounded-3xl p-7 sm:p-9 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-7 pb-4 border-b border-champagne/15">
+                  <div>
+                    <h3 class="font-display text-3xl font-medium text-ivory">Leadership &amp; Communication</h3>
+                    <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-champagne/80 mt-1">Expression &amp; Stewardship</p>
+                  </div>
+                  <span class="font-mono text-xs text-goldSoft/80">03</span>
+                </div>
+
+                <div class="space-y-4">
+                  <div class="p-4 sm:p-5 rounded-2xl bg-midnight/50 border border-champagne/15">
+                    <div class="flex items-center justify-between mb-1.5">
+                      <h4 class="font-medium text-ivory text-[15px]">Public Speaking</h4>
+                      <span class="font-mono text-[10px] uppercase tracking-wider text-champagne">Stage &amp; Classroom</span>
+                    </div>
+                    <p class="text-xs sm:text-sm font-light text-ivory/75 leading-relaxed">
+                      Articulate presentation and audience engagement refined through three years of teaching and campus representation.
+                    </p>
+                  </div>
+
+                  <div class="p-4 sm:p-5 rounded-2xl bg-midnight/50 border border-champagne/15">
+                    <div class="flex items-center justify-between mb-1.5">
+                      <h4 class="font-medium text-ivory text-[15px]">Event Management</h4>
+                      <span class="font-mono text-[10px] uppercase tracking-wider text-champagne">Coordination</span>
+                    </div>
+                    <p class="text-xs sm:text-sm font-light text-ivory/75 leading-relaxed">
+                      Planning logistics, team workflows, outreach campaigns, and institutional execution for student events.
+                    </p>
+                  </div>
+
+                  <div class="p-4 sm:p-5 rounded-2xl bg-midnight/50 border border-champagne/15">
+                    <div class="flex items-center justify-between mb-1.5">
+                      <h4 class="font-medium text-ivory text-[15px]">Technical &amp; Creative Writing</h4>
+                      <span class="font-mono text-[10px] uppercase tracking-wider text-champagne">Editorial</span>
+                    </div>
+                    <p class="text-xs sm:text-sm font-light text-ivory/75 leading-relaxed">
+                      Crafting structured academic literature reviews, formal club event reports, and compelling digital narratives.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <p class="mt-6 pt-4 border-t border-champagne/15 font-mono text-[11px] text-ivory/65">
+                Upcoming in future semesters: Engineering Graphics, AutoCAD &amp; Structural Analysis.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 9. BEYOND ACADEMICS (EXTRACURRICULARS & CREATIVE PURSUITS) ==================== -->
+      <section id="beyond" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 scroll-mt-20">
+        <div class="max-w-7xl mx-auto">
+          <div class="mb-12 reveal">
+            <span class="font-mono text-[11px] uppercase tracking-[0.3em] text-champagne">05 &bull; Extracurriculars &amp; Creative Pursuits</span>
+            <h2 class="font-display text-4xl sm:text-5xl font-medium text-ivory mt-2">
+              Beyond <span class="italic text-goldSoft">Academics</span>
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-7">
+
+            <!-- Card 1: Competitive Badminton -->
+            <article class="reveal glass-card rounded-3xl p-7 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-6">
+                  <div class="w-12 h-12 rounded-2xl border border-champagne/35 bg-champagne/10 flex items-center justify-center text-champagne">
+                    <svg class="w-6 h-6" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.7">
+                      <path d="M18 28c2.8 0 4.8-1.9 4.8-4.3S20.8 19.4 18 19.4s-4.8 1.9-4.8 4.3S15.2 28 18 28z" fill="rgba(232,196,104,0.18)" />
+                      <path d="M14.2 20L8.5 7.5l5.8 2.8L18 5.5l3.7 4.8 5.8-2.8L21.8 20" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M12.8 15.5h10.4" stroke-linecap="round" />
+                    </svg>
+                  </div>
+                  <span class="font-mono text-[10px] uppercase tracking-wider px-3 py-1 rounded-full bg-champagne/15 border border-champagne/35 text-goldSoft">
+                    District 4th Rank
+                  </span>
+                </div>
+
+                <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-champagne mb-1.5">Athletics</p>
+                <h3 class="font-display text-3xl font-medium text-ivory mb-3">Competitive Badminton</h3>
+                <p class="text-sm font-light text-ivory/80 leading-[1.8]">
+                  Secured <strong class="font-medium text-goldSoft">4th Rank at the District Level in Khel Mahakumbh</strong>. Currently training consistently for the upcoming <strong class="font-medium text-ivory">State Ranking Cycle</strong>—bringing agility, focus, and resilience from the court to engineering.
+                </p>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-champagne/15 flex items-center justify-between font-mono text-[11px] text-ivory/70">
+                <span>Khel Mahakumbh</span>
+                <span class="text-goldSoft">State Cycle Prep</span>
+              </div>
+            </article>
+
+            <!-- Card 2: Technopreneur Club -->
+            <article class="reveal glass-card rounded-3xl p-7 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-6">
+                  <div class="w-12 h-12 rounded-2xl border border-blueprintCyan/35 bg-blueprintCyan/10 flex items-center justify-center text-blueprintCyan">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <span class="font-mono text-[10px] uppercase tracking-wider px-3 py-1 rounded-full bg-blueprintCyan/10 border border-blueprintCyan/30 text-blueprintCyan">
+                    Committee Head
+                  </span>
+                </div>
+
+                <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-blueprintCyan mb-1.5">Campus Leadership</p>
+                <h3 class="font-display text-3xl font-medium text-ivory mb-3">Technopreneur Club</h3>
+                <p class="text-sm font-light text-ivory/80 leading-[1.8]">
+                  <strong class="font-medium text-ivory">Core Club Member</strong> at GEC Modasa and <strong class="font-medium text-goldSoft">Head Member of the Social Media &amp; Report Committees</strong>—directing digital strategy, analytics, and official event documentation for campus entrepreneurship initiatives.
+                </p>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-champagne/15 flex items-center justify-between font-mono text-[11px] text-ivory/70">
+                <span>GEC Modasa</span>
+                <span class="text-blueprintCyan">Social &amp; Reports</span>
+              </div>
+            </article>
+
+            <!-- Card 3: Rangoli Artistry (Featured gracefully here, NOT in Hero Headline) -->
+            <article class="reveal glass-card rounded-3xl p-7 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-6">
+                  <!-- Delicate Rotating Geometric Rangoli Emblem -->
+                  <div class="w-12 h-12 rounded-2xl border border-champagne/35 bg-champagne/10 flex items-center justify-center">
+                    <svg class="w-8 h-8 rangoli-spin" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                      <circle cx="32" cy="32" r="27" stroke="#e8c468" stroke-width="0.9" stroke-dasharray="2 3" />
+                      <rect x="17" y="17" width="30" height="30" stroke="#7dd3fc" stroke-width="0.9" />
+                      <rect x="17" y="17" width="30" height="30" stroke="#e8c468" stroke-width="1" transform="rotate(45 32 32)" />
+                      <path d="M32 14L35.5 28.5L50 32L35.5 35.5L32 50L28.5 35.5L14 32L28.5 28.5Z" fill="rgba(232,196,104,0.35)" stroke="#f6df9b" stroke-width="0.9" />
+                      <circle cx="32" cy="32" r="3" fill="#f6df9b" />
+                    </svg>
+                  </div>
+                  <span class="font-mono text-[10px] uppercase tracking-wider px-3 py-1 rounded-full bg-champagne/10 border border-champagne/30 text-goldSoft">
+                    Visual Arts
+                  </span>
+                </div>
+
+                <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-champagne mb-1.5">Creative Practice</p>
+                <h3 class="font-display text-3xl font-medium text-ivory mb-3">Rangoli Artistry</h3>
+                <p class="text-sm font-light text-ivory/80 leading-[1.8]">
+                  Traditional and geometric Rangoli artist blending radial symmetry, spatial precision, and color harmony—an artistic discipline that sharpens the same geometric sensibility found in architectural drafting and design.
+                </p>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-champagne/15 flex items-center justify-between font-mono text-[11px] text-ivory/70">
+                <span>Symmetry &amp; Form</span>
+                <span class="text-goldSoft">Traditional Art</span>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 10. CONTACT & SOCIALS SECTION ==================== -->
+      <section id="contact" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 scroll-mt-20">
+        <div class="max-w-6xl mx-auto">
+
+          <div class="reveal glass-card rounded-3xl p-8 sm:p-12">
+            <!-- Contact Header + Direct Email Actions -->
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-10 border-b border-champagne/15">
+              <div class="max-w-xl">
+                <span class="font-mono text-[11px] uppercase tracking-[0.3em] text-champagne">06 &bull; Correspondence</span>
+                <h2 class="font-display text-4xl sm:text-5xl font-medium text-ivory mt-2 mb-4">
+                  Let's <span class="italic text-goldSoft">Connect</span>
+                </h2>
+                <p class="text-sm sm:text-base font-light text-ivory/80 leading-relaxed">
+                  Open to conversations on sustainable civil engineering research, student collaborations, campus initiatives, and academic opportunities.
+                </p>
+              </div>
+
+              <!-- Email CTA + One-Click Copy -->
+              <div class="flex flex-wrap items-center gap-3">
+                <a id="contact-mailto-btn" href="mailto:pranshupatel458@gmail.com" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-champagne text-midnight font-medium text-sm hover:bg-goldSoft hover:shadow-gold-halo transition-all">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span id="contact-email-display">pranshupatel458@gmail.com</span>
+                </a>
+
+                <button id="btn-copy-email" type="button" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-full border border-champagne/40 bg-midnight/65 text-ivory text-sm font-normal hover:border-goldSoft hover:bg-champagne/15 transition-all cursor-pointer">
+                  <svg class="w-4 h-4 text-champagne" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                  <span>Copy Email</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Social Links Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 pt-9">
+
+              <!-- LinkedIn -->
+              <a href="https://www.linkedin.com/in/pranshu-patel-1046a1410" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-midnight/55 border border-champagne/15 hover:border-champagne/55 hover:bg-champagne/10 transition-all group flex flex-col justify-between gap-4">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-blueprintCyan">LinkedIn</span>
+                  <svg class="w-3.5 h-3.5 text-champagne/60 group-hover:text-goldSoft group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10" />
+                  </svg>
+                </div>
+                <p class="font-mono text-xs text-ivory/85 truncate">pranshu-patel-1046a1410</p>
+              </a>
+
+              <!-- Instagram -->
+              <a href="https://instagram.com/_pranshu_27" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-midnight/55 border border-champagne/15 hover:border-champagne/55 hover:bg-champagne/10 transition-all group flex flex-col justify-between gap-4">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-goldSoft">Instagram</span>
+                  <svg class="w-3.5 h-3.5 text-champagne/60 group-hover:text-goldSoft group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10" />
+                  </svg>
+                </div>
+                <p class="font-mono text-xs text-ivory/85">@_pranshu_27</p>
+              </a>
+
+              <!-- Threads -->
+              <a href="https://threads.net/@_pranshu_27" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-midnight/55 border border-champagne/15 hover:border-champagne/55 hover:bg-champagne/10 transition-all group flex flex-col justify-between gap-4">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-ivory/80">Threads</span>
+                  <svg class="w-3.5 h-3.5 text-champagne/60 group-hover:text-goldSoft group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10" />
+                  </svg>
+                </div>
+                <p class="font-mono text-xs text-ivory/85">@_pranshu_27</p>
+              </a>
+
+              <!-- WhatsApp (Meta Handle / Configurable URL) -->
+              <button id="whatsapp-card-btn" type="button" class="text-left p-4 rounded-2xl bg-midnight/55 border border-champagne/15 hover:border-champagne/55 hover:bg-champagne/10 transition-all group flex flex-col justify-between gap-4 cursor-pointer">
+                <div class="flex items-center justify-between w-full">
+                  <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-emerald-300">WhatsApp</span>
+                  <svg class="w-3.5 h-3.5 text-champagne/60 group-hover:text-goldSoft transition-all" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <p id="whatsapp-subtext" class="font-mono text-xs text-ivory/85">_pranshu_27 (Copy)</p>
+              </button>
+
+              <!-- GitHub (Active since 2023, configurable in PORTFOLIO_CONFIG) -->
+              <a id="github-link-card" href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-midnight/55 border border-champagne/15 hover:border-champagne/55 hover:bg-champagne/10 transition-all group flex flex-col justify-between gap-4">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-indigo-300">GitHub</span>
+                  <svg class="w-3.5 h-3.5 text-champagne/60 group-hover:text-goldSoft group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10" />
+                  </svg>
+                </div>
+                <p id="github-subtext" class="font-mono text-xs text-ivory/85 truncate">Active since 2023</p>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- MINIMAL EDITORIAL FOOTER -->
+    <footer class="border-t border-champagne/15 bg-midnight/75 backdrop-blur-md py-8 px-5 sm:px-8 lg:px-12">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <p class="font-display italic text-lg text-goldSoft/90">
+          Patel Pranshu &mdash; Civil Engineering, GEC Modasa &bull; Himatnagar, Gujarat
+        </p>
+        <p class="font-mono text-[11px] text-ivory/60">
+          &copy; <span id="footer-year">2026</span> Patel Pranshu &bull; Inspired by Vincent van Gogh&rsquo;s <em>The Starry Night</em>
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ==================== EASY-TO-EDIT PORTFOLIO CONFIG & INTERACTIVE ENGINES ==================== -->
+  <script>
+    /**
+     * ============================================================================
+     * PORTFOLIO_CONFIG — UPDATE YOUR 4-YEAR PORTFOLIO IN SECONDS
+     * ============================================================================
+     * - currentSemester: Update from 1 to 2, 3 ... 8 each semester to permanently
+     *   build the next tier of your Petronas Twin Towers blueprint!
+     * - email: Your primary contact email.
+     * - profileImageUrl: Leave "" to show the golden "PP" monogram, or paste your
+     *   headshot path/URL (e.g., "./pranshu.jpg") to display your photo.
+     * - githubUrl: Paste your exact GitHub profile URL (e.g., "https://github.com/username").
+     * - whatsappUrl: Optional direct wa.me link; leave "" to copy handle "_pranshu_27".
+     * - milestones: Edit any semester's title, summary, or milestone list anytime.
+     */
+    const PORTFOLIO_CONFIG = {
+      currentSemester: 1,
+      email: "pranshupatel458@gmail.com",
+      profileImageUrl: "",
+      githubUrl: "https://github.com",
+      whatsappHandle: "_pranshu_27",
+      whatsappUrl: "",
+      milestones: [
+        {
+          sem: 1,
+          year: "2026",
+          elevationRange: "0m – 62m",
+          builtHeight: "+62.0m",
+          phase: "Foundation, Podium & Lower Lobby Tiers",
+          subtitle: "Civil Engineering Fundamentals, C Programming & Literature Review Initiation",
+          description:
+            "Establishing the deep structural raft foundation, grand podium concourse, and lower lobby bases—building first-semester civil fundamentals at GEC Modasa, C programming logic, and initiating my literature review on sustainable materials.",
+          items: [
+            "Deep structural pilings, connecting podium & lower lobby tiers built",
+            "Civil engineering foundations, C programming & MS Excel toolkit",
+            "Literature review topic defined: Sustainable Materials & Building"
+          ]
+        },
+        {
+          sem: 2,
+          year: "2027",
+          elevationRange: "62m – 110m",
+          builtHeight: "+110.0m",
+          phase: "Lower Core Shafts",
+          subtitle: "Sustainable Materials & Building Literature Review Continuation",
+          description:
+            "Raising the symmetrical fluted lower core shafts of both towers—completing the Semester 1–2 literature review synthesis on sustainable building materials alongside foundational engineering graphics.",
+          items: [
+            "Sustainable Materials & Building literature review completed",
+            "Engineering graphics, orthographic projection & technical drafting",
+            "Expanded Technopreneur Club documentation & social media analytics"
+          ]
+        },
+        {
+          sem: 3,
+          year: "2027",
+          elevationRange: "110m – 158m",
+          builtHeight: "+158.0m",
+          phase: "Mid-Lower Structural Tiers",
+          subtitle: "Core Engineering Mechanics & Material Science",
+          description:
+            "Constructing the first subtle stepped setbacks—diving into mechanics of solids, concrete technology, and construction material properties.",
+          items: [
+            "Mechanics of Solids & structural load behavior",
+            "Building materials testing & civil material science",
+            "Foundational CAD drawing & architectural visualization"
+          ]
+        },
+        {
+          sem: 4,
+          year: "2028",
+          elevationRange: "158m – 215m",
+          builtHeight: "+215.0m",
+          phase: "Iconic Double-Decker Skybridge & Mid-Tower Link",
+          subtitle: "Mid-Degree Milestone & Technical Fieldwork",
+          description:
+            "Spanning the unmistakable double-decker Skybridge and three-hinged angled steel support legs between Tower 1 and Tower 2—marking the halfway milestone of my B.E. Civil Engineering journey.",
+          items: [
+            "Double-decker Skybridge (Levels 41–42) & angled arch legs erected",
+            "Surveying fieldwork & mid-degree structural engineering milestones",
+            "Bridging academic theory with hands-on civil engineering practice"
+          ]
+        },
+        {
+          sem: 5,
+          year: "2028",
+          elevationRange: "215m – 272m",
+          builtHeight: "+272.0m",
+          phase: "Upper-Mid Setback Tiers",
+          subtitle: "Structural Analysis & Green Building Systems",
+          description:
+            "Stepping the twin shafts inward with precision steel-and-glass curtain walls—mastering indeterminate structural analysis, geotechnical engineering, and green building principles.",
+          items: [
+            "Structural analysis of multi-story frames & trusses",
+            "Green building systems & low-carbon material evaluation",
+            "Geotechnical soil mechanics & foundation design"
+          ]
+        },
+        {
+          sem: 6,
+          year: "2029",
+          elevationRange: "272m – 324m",
+          builtHeight: "+324.0m",
+          phase: "Upper Structural Shafts & Observation Levels",
+          subtitle: "Advanced Research & Drafting",
+          description:
+            "Illuminating the upper observation deck ribbon at Level 86—combining advanced structural design, transportation & urban planning, and industry-oriented engineering drafting.",
+          items: [
+            "Upper observation deck & high-rise structural systems",
+            "Advanced civil drafting, BIM exploration & field internship",
+            "Technical seminar & research paper preparation"
+          ]
+        },
+        {
+          sem: 7,
+          year: "2029",
+          elevationRange: "324m – 378m",
+          builtHeight: "+378.0m",
+          phase: "Crown Tier & Spire Bases",
+          subtitle: "Pre-Final Engineering Projects & Capstone Prep",
+          description:
+            "Assembling the multi-tiered tapered architectural crowns atop both towers—executing major pre-final sustainable civil engineering projects and preparing my final-year capstone thesis.",
+          items: [
+            "Multi-tiered tapered crown collars & spire pedestals installed",
+            "Major sustainable building design capstone initiation",
+            "Research manuscript refinement & structural prototyping"
+          ]
+        },
+        {
+          sem: 8,
+          year: "2030",
+          elevationRange: "378m – 451.9m",
+          builtHeight: "451.9m",
+          phase: "Twin Pinnacles & Full Illumination",
+          subtitle: "B.E. Civil Engineering Graduation — Towers Complete",
+          description:
+            "Crowning Tower 1 and Tower 2 with their slender 73.5-meter stainless steel pinnacles at 451.9 meters—celebrating the complete four-year Bachelor of Engineering degree at GEC Modasa.",
+          items: [
+            "Twin pinnacles, finials & full architectural illumination complete",
+            "Final capstone project defense & comprehensive portfolio",
+            "B.E. Civil Engineering Graduation — Class of 2030"
+          ]
+        }
+      ]
+    };
+
+    /**
+     * ============================================================================
+     * CUSTOM TOAST NOTIFICATION (Replaces alert() / confirm())
+     * ============================================================================
+     */
+    function showToast(message) {
+      try {
+        const container = document.getElementById("toast-container");
+        if (!container) return;
+        const toast = document.createElement("div");
+        toast.className =
+          "pointer-events-auto px-4 py-3 rounded-2xl border border-champagne/45 bg-midnight/95 text-ivory text-xs sm:text-sm font-normal shadow-gold-halo backdrop-blur-xl flex items-center gap-2.5 transition-all duration-300 opacity-0 translate-y-2";
+        toast.innerHTML = `<span class="w-2 h-2 rounded-full bg-champagne shrink-0"></span><span>${message}</span>`;
+        container.appendChild(toast);
+
+        requestAnimationFrame(() => {
+          toast.classList.remove("opacity-0", "translate-y-2");
+        });
+
+        setTimeout(() => {
+          toast.classList.add("opacity-0", "translate-y-2");
+          setTimeout(() => toast.remove(), 320);
+        }, 2800);
+      } catch (err) {
+        console.error("Toast error:", err);
+      }
+    }
+
+    /**
+     * ============================================================================
+     * SAFE CLIPBOARD COPY (iFrame-compatible execCommand fallback)
+     * ============================================================================
+     */
+    function copyText(text, label) {
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        showToast(ok ? `${label} copied: ${text}` : `${label}: ${text}`);
+      } catch (err) {
+        console.error("Copy error:", err);
+        showToast(`${label}: ${text}`);
+      }
+    }
+
+    /**
+     * ============================================================================
+     * PP MONOGRAM POP-UP SPLASH PRELOADER CONTROLLER
+     * ============================================================================
+     */
+    function initPreloader() {
+      try {
+        const preloader = document.getElementById("pp-preloader");
+        if (!preloader) return;
+
+        const dismiss = () => {
+          preloader.classList.add("is-dismissed");
+        };
+
+        // Hold for ~1.35s so the golden PP pop-up and ring draw shine cleanly, then lift away
+        setTimeout(dismiss, 1380);
+
+        // Allow optional instant tap/click to enter early
+        preloader.addEventListener("click", dismiss, { once: true });
+      } catch (err) {
+        console.error("Preloader error:", err);
+      }
+    }
+
+    /**
+     * ============================================================================
+     * HYDRATE PORTFOLIO_CONFIG (EMAIL, HEADSHOT, GITHUB, WHATSAPP, LIVE SEMESTER)
+     * ============================================================================
+     */
+    function hydrateConfig() {
+      try {
+        const liveSem = Math.min(8, Math.max(1, parseInt(PORTFOLIO_CONFIG.currentSemester, 10) || 1));
+        PORTFOLIO_CONFIG.currentSemester = liveSem;
+
+        // Live Semester text sync
+        const heroCoordSem = document.getElementById("hero-coord-sem");
+        if (heroCoordSem) heroCoordSem.textContent = String(liveSem).padStart(2, "0");
+
+        const aboutStageText = document.getElementById("about-stage-text");
+        if (aboutStageText) aboutStageText.textContent = `Semester ${liveSem} of 8`;
+
+        const resetBtnLabel = document.getElementById("reset-btn-label");
+        if (resetBtnLabel) resetBtnLabel.textContent = `Current Progress (Sem ${liveSem})`;
+
+        // Email sync
+        const email = (PORTFOLIO_CONFIG.email || "pranshupatel458@gmail.com").trim();
+        const heroMail = document.getElementById("hero-mailto-btn");
+        const contactMail = document.getElementById("contact-mailto-btn");
+        const contactEmailDisplay = document.getElementById("contact-email-display");
+        if (heroMail) heroMail.href = `mailto:${email}`;
+        if (contactMail) contactMail.href = `mailto:${email}`;
+        if (contactEmailDisplay) contactEmailDisplay.textContent = email;
+
+        // Profile Headshot vs Golden PP Monogram
+        const imgUrl = (PORTFOLIO_CONFIG.profileImageUrl || "").trim();
+        const headshot = document.getElementById("about-headshot");
+        const monogram = document.getElementById("about-monogram");
+        if (imgUrl && headshot && monogram) {
+          headshot.src = imgUrl;
+          headshot.onload = () => {
+            headshot.classList.remove("hidden");
+            monogram.classList.add("hidden");
+          };
+          headshot.onerror = () => {
+            headshot.classList.add("hidden");
+            monogram.classList.remove("hidden");
+          };
+        }
+
+        // GitHub URL sync
+        const ghLink = document.getElementById("github-link-card");
+        const ghSub = document.getElementById("github-subtext");
+        const ghUrl = (PORTFOLIO_CONFIG.githubUrl || "https://github.com").trim();
+        if (ghLink && ghSub) {
+          ghLink.href = ghUrl;
+          if (ghUrl !== "https://github.com" && ghUrl !== "https://github.com/") {
+            ghSub.textContent = ghUrl.replace(/^https?:\/\/(www\.)?/, "");
+          } else {
+            ghSub.textContent = "Active since 2023";
+          }
+        }
+
+        // WhatsApp button (opens URL if configured, otherwise copies Meta handle)
+        const waBtn = document.getElementById("whatsapp-card-btn");
+        const waSub = document.getElementById("whatsapp-subtext");
+        const waUrl = (PORTFOLIO_CONFIG.whatsappUrl || "").trim();
+        if (waBtn) {
+          if (waUrl && waSub) {
+            waSub.textContent = PORTFOLIO_CONFIG.whatsappHandle;
+            waBtn.addEventListener("click", () => window.open(waUrl, "_blank", "noopener,noreferrer"));
+          } else {
+            waBtn.addEventListener("click", () => copyText(PORTFOLIO_CONFIG.whatsappHandle, "WhatsApp / Meta handle"));
+          }
+        }
+
+        // Footer year
+        const yearEl = document.getElementById("footer-year");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+      } catch (err) {
+        console.error("Config hydration error:", err);
+      }
+    }
+
+    /**
+     * ============================================================================
+     * PETRONAS TWIN TOWERS 8-SEMESTER BLUEPRINT CONTROLLER
+     * ============================================================================
+     */
+    function initPetronasBlueprint() {
+      try {
+        let selectedSem = PORTFOLIO_CONFIG.currentSemester;
+        let timelapseInterval = null;
+
+        const slider = document.getElementById("semester-slider");
+        const pillsContainer = document.getElementById("semester-pills");
+        const btnTimelapse = document.getElementById("btn-timelapse");
+        const playIcon = document.getElementById("timelapse-play-icon");
+        const pauseIcon = document.getElementById("timelapse-pause-icon");
+        const timelapseLabel = document.getElementById("timelapse-label");
+        const btnReset = document.getElementById("btn-reset-current");
+
+        // Build 8 interactive Semester pill buttons
+        if (pillsContainer) {
+          pillsContainer.innerHTML = "";
+          PORTFOLIO_CONFIG.milestones.forEach((m) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.dataset.semPill = String(m.sem);
+            btn.className =
+              "py-2.5 px-2 rounded-xl font-mono text-xs border transition-all cursor-pointer flex flex-col items-center justify-center";
+            btn.innerHTML = `<span>Sem ${m.sem}</span><span class="text-[9px] opacity-70 mt-0.5">${m.year}</span>`;
+            btn.addEventListener("click", () => {
+              stopTimelapse();
+              renderStage(m.sem);
+            });
+            pillsContainer.appendChild(btn);
+          });
+        }
+
+        // Allow direct clicks on any tower tier in the SVG
+        document.querySelectorAll(".tower-stage").forEach((stageEl) => {
+          stageEl.addEventListener("click", () => {
+            const sem = parseInt(stageEl.dataset.sem, 10);
+            if (!isNaN(sem)) {
+              stopTimelapse();
+              renderStage(sem);
+            }
+          });
+        });
+
+        function renderStage(sem) {
+          selectedSem = Math.min(8, Math.max(1, sem));
+          const liveSem = PORTFOLIO_CONFIG.currentSemester;
+          const m = PORTFOLIO_CONFIG.milestones[selectedSem - 1];
+          const pct = (selectedSem / 8) * 100;
+
+          if (slider) slider.value = String(selectedSem);
+
+          // Toggle built vs blueprint wireframe on Petronas SVG tiers
+          document.querySelectorAll(".tower-stage").forEach((el) => {
+            const stageNum = parseInt(el.dataset.sem, 10);
+            el.classList.toggle("is-built", stageNum <= selectedSem);
+            el.classList.toggle("is-selected", stageNum === selectedSem);
+          });
+
+          // Highlight left elevation datum scale ticks
+          document.querySelectorAll("[data-datum]").forEach((el) => {
+            const dNum = parseInt(el.getAttribute("data-datum"), 10);
+            if (dNum <= selectedSem) {
+              el.setAttribute("fill", "#f6df9b");
+              el.style.opacity = "1";
+            } else {
+              el.setAttribute("fill", "rgba(186,230,253,0.72)");
+              el.style.opacity = "0.52";
+            }
+          });
+
+          // Update Elevation Header
+          const heightReadout = document.getElementById("blueprint-height-readout");
+          if (heightReadout) {
+            heightReadout.textContent = `BUILT ELEVATION: ${m.builtHeight} / 451.9m`;
+          }
+
+          // Update 8 Semester Pills styling
+          document.querySelectorAll("[data-sem-pill]").forEach((btn) => {
+            const num = parseInt(btn.dataset.semPill, 10);
+            btn.classList.remove(
+              "bg-champagne",
+              "text-midnight",
+              "border-goldSoft",
+              "font-medium",
+              "shadow-gold-halo",
+              "bg-champagne/15",
+              "text-goldSoft",
+              "border-champagne/40",
+              "bg-midnight/60",
+              "text-ivory/70",
+              "border-champagne/15"
+            );
+
+            if (num === selectedSem) {
+              btn.classList.add("bg-champagne", "text-midnight", "border-goldSoft", "font-medium", "shadow-gold-halo");
+            } else if (num <= liveSem) {
+              btn.classList.add("bg-champagne/15", "text-goldSoft", "border-champagne/40");
+            } else {
+              btn.classList.add("bg-midnight/60", "text-ivory/70", "border-champagne/15");
+            }
+          });
+
+          // Update Detail Card
+          const badge = document.getElementById("progress-badge");
+          const stageNumEl = document.getElementById("detail-stage-num");
+          const statusEl = document.getElementById("detail-status-badge");
+          const elevTag = document.getElementById("detail-elevation-tag");
+          const semHeading = document.getElementById("detail-sem-heading");
+          const phaseTitle = document.getElementById("detail-phase-title");
+          const subtitleEl = document.getElementById("detail-academic-subtitle");
+          const descEl = document.getElementById("detail-description");
+          const listEl = document.getElementById("detail-milestones");
+          const pctText = document.getElementById("detail-percent-text");
+          const pctBar = document.getElementById("detail-progress-bar");
+
+          if (badge) badge.textContent = `${pct}% Built`;
+          if (stageNumEl) stageNumEl.textContent = String(selectedSem).padStart(2, "0");
+          if (elevTag) elevTag.textContent = m.elevationRange;
+          if (semHeading) semHeading.textContent = `Semester ${m.sem} • ${m.year}`;
+          if (phaseTitle) phaseTitle.textContent = m.phase;
+          if (subtitleEl) subtitleEl.textContent = m.subtitle;
+          if (descEl) descEl.textContent = m.description;
+          if (pctText) pctText.textContent = `${pct}%`;
+          if (pctBar) pctBar.style.width = `${pct}%`;
+
+          if (statusEl) {
+            if (selectedSem === liveSem) {
+              statusEl.className =
+                "inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-mono text-[10px] uppercase tracking-[0.18em] bg-champagne/20 text-goldSoft border border-champagne/45";
+              statusEl.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-champagne animate-pulse"></span>Current &bull; Built`;
+            } else if (selectedSem < liveSem) {
+              statusEl.className =
+                "inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-mono text-[10px] uppercase tracking-[0.18em] bg-emerald-400/15 text-emerald-300 border border-emerald-400/35";
+              statusEl.innerHTML = "Completed Stage";
+            } else {
+              statusEl.className =
+                "inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-mono text-[10px] uppercase tracking-[0.18em] bg-blueprintCyan/10 text-blueprintCyan border border-blueprintCyan/30";
+              statusEl.innerHTML = "Blueprint Preview";
+            }
+          }
+
+          if (listEl) {
+            listEl.innerHTML = m.items
+              .map(
+                (txt) =>
+                  `<li class="flex items-start gap-2.5"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-champagne shrink-0"></span><span>${txt}</span></li>`
+              )
+              .join("");
+          }
+        }
+
+        function stopTimelapse() {
+          if (timelapseInterval) {
+            clearInterval(timelapseInterval);
+            timelapseInterval = null;
+          }
+          if (playIcon) playIcon.classList.remove("hidden");
+          if (pauseIcon) pauseIcon.classList.add("hidden");
+          if (timelapseLabel) timelapseLabel.textContent = "Play 4-Year Time-Lapse";
+        }
+
+        function toggleTimelapse() {
+          if (timelapseInterval) {
+            stopTimelapse();
+            return;
+          }
+
+          if (playIcon) playIcon.classList.add("hidden");
+          if (pauseIcon) pauseIcon.classList.remove("hidden");
+          if (timelapseLabel) timelapseLabel.textContent = "Pause Time-Lapse";
+
+          if (selectedSem >= 8) {
+            renderStage(1);
+          }
+
+          timelapseInterval = setInterval(() => {
+            if (selectedSem < 8) {
+              renderStage(selectedSem + 1);
+            } else {
+              stopTimelapse();
+              showToast("Petronas Twin Towers 100% Complete — B.E. Civil Engineering (2030)!");
+            }
+          }, 1050);
+        }
+
+        if (slider) {
+          slider.addEventListener("input", (e) => {
+            stopTimelapse();
+            renderStage(parseInt(e.target.value, 10));
+          });
+        }
+
+        if (btnTimelapse) {
+          btnTimelapse.addEventListener("click", toggleTimelapse);
+        }
+
+        if (btnReset) {
+          btnReset.addEventListener("click", () => {
+            stopTimelapse();
+            renderStage(PORTFOLIO_CONFIG.currentSemester);
+            showToast(`Viewing current progress: Semester ${PORTFOLIO_CONFIG.currentSemester} of 8.`);
+          });
+        }
+
+        // Initial render
+        renderStage(PORTFOLIO_CONFIG.currentSemester);
+      } catch (err) {
+        console.error("Petronas blueprint error:", err);
+      }
+    }
+
+    /**
+     * ============================================================================
+     * DELICATE STARLIGHT DUST PARTICLE ENGINE (NO SUN, NO MOON, NO ORBS)
+     * ============================================================================
+     */
+    function initStarlightDust() {
+      try {
+        const canvas = document.getElementById("dust-canvas");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        let dpr = Math.min(window.devicePixelRatio || 1, 2);
+        let particles = [];
+
+        function createParticles() {
+          const count = Math.min(58, Math.max(24, Math.floor((width * height) / 28000)));
+          particles = [];
+          for (let i = 0; i < count; i++) {
+            particles.push({
+              x: Math.random() * width,
+              y: Math.random() * height,
+              r: 0.55 + Math.random() * 1.15,
+              vx: (Math.random() - 0.5) * 0.14,
+              vy: -0.05 - Math.random() * 0.14,
+              phase: Math.random() * Math.PI * 2,
+              speed: 0.012 + Math.random() * 0.018,
+              color: Math.random() > 0.35 ? "246, 223, 155" : "186, 230, 253"
+            });
+          }
+        }
+
+        function resize() {
+          width = window.innerWidth;
+          height = window.innerHeight;
+          dpr = Math.min(window.devicePixelRatio || 1, 2);
+          canvas.width = Math.floor(width * dpr);
+          canvas.height = Math.floor(height * dpr);
+          canvas.style.width = `${width}px`;
+          canvas.style.height = `${height}px`;
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          createParticles();
+        }
+
+        window.addEventListener("resize", resize);
+        resize();
+
+        let tick = 0;
+        function animate() {
+          tick += 1;
+          ctx.clearRect(0, 0, width, height);
+
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.y < -10) p.y = height + 10;
+            if (p.x < -10) p.x = width + 10;
+            if (p.x > width + 10) p.x = -10;
+
+            const alpha = 0.18 + 0.42 * (0.5 + 0.5 * Math.sin(tick * p.speed + p.phase));
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${p.color}, ${alpha.toFixed(3)})`;
+            ctx.fill();
+          }
+
+          requestAnimationFrame(animate);
+        }
+
+        requestAnimationFrame(animate);
+      } catch (err) {
+        console.error("Dust canvas error:", err);
+      }
+    }
+
+    /**
+     * ============================================================================
+     * NAVIGATION, COPY EMAIL & SCROLL REVEALS
+     * ============================================================================
+     */
+    function initInteractions() {
+      try {
+        // Mobile Menu Toggle
+        const btn = document.getElementById("mobile-menu-btn");
+        const menu = document.getElementById("mobile-menu");
+        const openIcon = document.getElementById("menu-open-icon");
+        const closeIcon = document.getElementById("menu-close-icon");
+
+        function closeMenu() {
+          if (!menu || !btn) return;
+          menu.classList.add("hidden");
+          btn.setAttribute("aria-expanded", "false");
+          if (openIcon) openIcon.classList.remove("hidden");
+          if (closeIcon) closeIcon.classList.add("hidden");
+        }
+
+        if (btn && menu) {
+          btn.addEventListener("click", () => {
+            const opening = menu.classList.contains("hidden");
+            menu.classList.toggle("hidden", !opening);
+            btn.setAttribute("aria-expanded", String(opening));
+            if (openIcon) openIcon.classList.toggle("hidden", opening);
+            if (closeIcon) closeIcon.classList.toggle("hidden", !opening);
+          });
+
+          document.querySelectorAll(".mobile-nav-link").forEach((el) => {
+            el.addEventListener("click", closeMenu);
+          });
+        }
+
+        // Copy Email Button
+        const copyEmailBtn = document.getElementById("btn-copy-email");
+        if (copyEmailBtn) {
+          copyEmailBtn.addEventListener("click", () => {
+            copyText(PORTFOLIO_CONFIG.email, "Email address");
+          });
+        }
+
+        // Smooth Scroll Reveals
+        const revealEls = document.querySelectorAll(".reveal");
+        if ("IntersectionObserver" in window) {
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("revealed");
+                  io.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1, rootMargin: "0px 0px -24px 0px" }
+          );
+          revealEls.forEach((el) => io.observe(el));
+        } else {
+          revealEls.forEach((el) => el.classList.add("revealed"));
+        }
+      } catch (err) {
+        console.error("Interaction error:", err);
+      }
+    }
+
+    // Boot preloader immediately on DOM ready so PP pops up right away
+    document.addEventListener("DOMContentLoaded", () => {
+      initPreloader();
+      hydrateConfig();
+      initPetronasBlueprint();
+      initInteractions();
+    });
+
+    // Start ambient starlight particle animation on window load
+    window.addEventListener("load", () => {
+      initStarlightDust();
+    });
+  </script>
+</body>
+</html>
